@@ -1,0 +1,32 @@
+{
+    "listaIdeias":[
+        {
+            "name": "Rodrigo",
+            "idade": 26,
+            "sexo": "Masculino",
+            "emprego": "Desempregado",
+            "score": "343",
+            "qteVisitas": "3",
+            "conseguiuCredito": "Nao",
+            "valorDoCredito": "Nao conseguiu",
+
+            "valorInvestimento": 1000000,
+            "ideia": "botar Juan p jogar the last of us part 2 até ele perceber que o jogo é uma obra de arte",
+            "valorSustentabilidade": 100000000
+        },
+        {
+            "name": "Juan",
+            "idade": 20,
+            "sexo": "Masculino",
+            "emprego": "Desempregado",
+            "score": "0",
+            "qteVisitas": "1",
+            "conseguiuCredito": "Nao",
+            "valorDoCredito": "Nao conseguiu",
+
+            "valorInvestimento": 1000,
+            "ideia": "Jogar the last of us part 2 até ele perceber que o jogo é uma obra de arte",
+            "valorSustentabilidade": 100000000
+        }
+    ]
+}
