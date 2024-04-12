@@ -12,7 +12,8 @@
 
             "valorInvestimento": 1000000,
             "ideia": "botar Juan p jogar the last of us part 2 até ele perceber que o jogo é uma obra de arte",
-            "valorSustentabilidade": 100000000
+            "valorSustentabilidade": 100000000,
+            "resposta": ""
         },
         {
             "name": "Juan",
@@ -26,7 +27,8 @@
 
             "valorInvestimento": 1000,
             "ideia": "Jogar the last of us part 2 até ele perceber que o jogo é uma obra de arte",
-            "valorSustentabilidade": 100000000
+            "valorSustentabilidade": 100000000,
+            "resposta": ""
         }
     ]
 }

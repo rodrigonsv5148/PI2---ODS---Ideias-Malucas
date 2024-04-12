@@ -33,5 +33,7 @@ public class IdeiasControle : MonoBehaviour
         Debug.Log(ideiaDaVez.valorInvestimento);
         Debug.Log(ideiaDaVez.ideia);
         Debug.Log(ideiaDaVez.valorSustentabilidade);
+
+        Debug.Log(ideiaDaVez.resposta);
     }
 }

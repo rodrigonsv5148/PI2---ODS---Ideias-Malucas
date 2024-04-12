@@ -20,6 +20,8 @@ public class Ideias
     public int valorInvestimento;
     public string ideia;
     public int valorSustentabilidade;
+
+    public string resposta;
 }
 
 [Serializable]
