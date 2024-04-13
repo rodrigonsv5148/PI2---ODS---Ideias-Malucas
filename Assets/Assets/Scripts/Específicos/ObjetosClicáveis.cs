@@ -17,27 +17,30 @@ public class ObjetosClicáveis : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
-
+  
     private void OnMouseDown()
     {
         posicaoAtual = posicaoInicial; // Passa a posição inicial para a atual, já que vamos alterar a atual mais a frente
     }
+
+    
     private void OnMouseDrag()
     {
         // Converte a posição do mouse na tela para uma posição no mundo 3D
         Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-                transform.position = posicaoMouse; // Faz o objeto seguir o mouse    
 
-        if (Input.GetMouseButtonDown(1)) 
+        transform.position = posicaoMouse; // Faz o objeto seguir o mouse    
+
+        if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("ativou efeito");
         }
+        
     }
-
-    private void OnMouseExit()
+    
+    private void OnMouseUp()
     {
         transform.position = posicaoInicial; // Devolve o objeto a posição inicial
     }
