@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjetosClicáveis : MonoBehaviour
+public class ObjetosClicaveis : MonoBehaviour
 {
     private Vector2 posicaoInicial = new Vector2 (0f,0f);
     private Vector2 andar = new Vector2(0.1f, 0.1f);
     private Vector2 posicaoAtual = new Vector2(0f, 0f);
+    [SerializeField] private bool arrastavel = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +31,10 @@ public class ObjetosClicáveis : MonoBehaviour
     {
         // Converte a posição do mouse na tela para uma posição no mundo 3D
         Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        transform.position = posicaoMouse; // Faz o objeto seguir o mouse    
+        if (arrastavel) 
+        {
+            transform.position = posicaoMouse; // Faz o objeto seguir o mouse    
+        }
 
         if (Input.GetMouseButtonDown(1))
         {
