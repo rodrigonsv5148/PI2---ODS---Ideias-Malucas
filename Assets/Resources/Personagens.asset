@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a398d55c4c19649aecb0df2af78cae, type: 3}
-  m_Name: Personagens
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 0}
+  m_Name: personagens
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptablePersonagens
   Characteres:
-  - {fileID: 8321679609080182011, guid: 28f3db917f2ab1943b3568a1bb42fb8b, type: 3}
-  - {fileID: 1320240701059901791, guid: 58d57dce261a21349a09b1804d3d2085, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
