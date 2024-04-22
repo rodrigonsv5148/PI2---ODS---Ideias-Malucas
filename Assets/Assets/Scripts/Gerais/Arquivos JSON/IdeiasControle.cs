@@ -6,10 +6,7 @@ using System.IO;
 
 public class IdeiasControle : MonoBehaviour
 {
-
-    // tirar do start e botar quando o NPC sair.
-    // Start is called before the first frame update
-    void Start()
+    public static Ideias Informacoes(int indiceJSON) 
     {
         //Carrega o arquivo JSON
         var jsonFile = Resources.Load<TextAsset>("Save/Ideias");
@@ -18,10 +15,9 @@ public class IdeiasControle : MonoBehaviour
         TodasIdeias arquivoJson = JsonUtility.FromJson<TodasIdeias>(jsonFile.text);
 
         // Acessa o vetor de jogadores e obtém o jogador na posição desejada
-        int indiceVetor = 0; // índice do jogador que queremos acessar
-        Ideias ideiaDaVez = arquivoJson.listaIdeias[indiceVetor];
+        Ideias ideiaDaVez = arquivoJson.listaIdeias[indiceJSON];
 
-        Debug.Log(ideiaDaVez.name);
+        /*Debug.Log(ideiaDaVez.name);
         Debug.Log(ideiaDaVez.idade);
         Debug.Log(ideiaDaVez.sexo);
         Debug.Log(ideiaDaVez.emprego);
@@ -34,6 +30,8 @@ public class IdeiasControle : MonoBehaviour
         Debug.Log(ideiaDaVez.ideia);
         Debug.Log(ideiaDaVez.valorSustentabilidade);
 
-        Debug.Log(ideiaDaVez.resposta);
+        Debug.Log(ideiaDaVez.resposta);*/
+
+        return ideiaDaVez;
     }
 }

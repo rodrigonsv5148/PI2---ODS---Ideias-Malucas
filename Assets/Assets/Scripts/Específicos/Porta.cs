@@ -23,18 +23,18 @@ public class Porta : MonoBehaviour
 
     // Relacionados aos personagens
     [SerializeField] private ScriptablePersonagens listaPersonagens;
-    [SerializeField] private ScriptablePersonagens personagemLocationBase;
+    [SerializeField] private Transform personagemLocationBase;
     private int qtePersonagens;
     private int charactereAtualNumber;
     List<int> personagensUsados;
-    private GameObject[] personagensInGame = new GameObject[4];
-    private GameObject[] papelInGame = new GameObject[4];
+    private GameObject[] personagensInGame = new GameObject[2];
+    private GameObject[] papelInGame = new GameObject[2];
 
     //----------------------------------------------
 
     // Relacionados ao papel
     [SerializeField] private GameObject papel;
-    [SerializeField] private GameObject papelLocationBase;
+    [SerializeField] private Transform papelLocationBase;
     
     //---------------------------------------------------
 
@@ -57,8 +57,9 @@ public class Porta : MonoBehaviour
     {
         if (interativo == false)
         {
+            // Botar essa variável p false enquanto não tiver NPC na cadeira (Sendo assim, é melhor essa variável estar no script geral da cena) ai vai ser interativo. Nome do script
+            //interativo = true; // Variável de controle para não ativar o mesmo evento simultâneamente 
             
-            //spawnandoPersonagem = true; // Variável de controle para não ativar o mesmo evento simultâneamente
             Debug.Log("ativou efeito");
 
             tempoAudio = playAudios(qteAudiosProximo, scriptableAudioProximo);
@@ -71,15 +72,7 @@ public class Porta : MonoBehaviour
             tempoAudio = playAudios(qteAudiosPassos, scriptableAudioPassos);
             StartCoroutine(tempoDeEspera(tempoAudio));
 
-            charactereAtualNumber = Random.Range(0, qtePersonagens);
-            while (personagensUsados.Contains(charactereAtualNumber)) 
-            {
-                charactereAtualNumber = Random.Range(0, qtePersonagens);
-            }
-            personagensUsados.Add(charactereAtualNumber);
-
-            // tenho a lista atualizada e o valor do personagem que vou pegar na lista de assets
-
+            spawnNPC();
 
             Debug.Log("Aquiiiiiii " + tempoAudio);
         }
@@ -109,5 +102,20 @@ public class Porta : MonoBehaviour
 
         audioSource.Play();
         return(tempoAudio);
+    }
+
+    private void spawnNPC() 
+    {
+        charactereAtualNumber = Random.Range(0, qtePersonagens);
+        while (personagensUsados.Contains(charactereAtualNumber))
+        {
+            charactereAtualNumber = Random.Range(0, qtePersonagens);
+        }
+        personagensUsados.Add(charactereAtualNumber);
+        // tenho a lista atualizada e o valor do personagem que vou pegar na lista de assets
+
+        Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
+
+        Instantiate(papel, papelLocationBase.position, Quaternion.identity);
     }
 }
