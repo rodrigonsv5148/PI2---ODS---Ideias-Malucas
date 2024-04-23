@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51450c7a4896c42448cb32651e0beca6, type: 3}
   m_Name: Porta
   m_EditorClassIdentifier: 
-  audios: []
+  audios:
+  - {fileID: 8300000, guid: 2b60c3f4db3e3274cb5842ef17ff8c80, type: 3}

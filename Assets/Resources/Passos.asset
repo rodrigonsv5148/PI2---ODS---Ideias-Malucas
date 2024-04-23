@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51450c7a4896c42448cb32651e0beca6, type: 3}
   m_Name: Passos
   m_EditorClassIdentifier: 
-  audios: []
+  audios:
+  - {fileID: 8300000, guid: c5999762485be454a8e705a698493a0d, type: 3}

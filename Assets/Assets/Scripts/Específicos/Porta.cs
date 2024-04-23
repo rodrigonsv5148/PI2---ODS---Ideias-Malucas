@@ -7,11 +7,11 @@ using UnityEngine.Audio;
 
 public class Porta : MonoBehaviour
 {
-    [SerializeField] private bool interativo = false;
+    private bool interativo = true;
     
     //Variáveis relativas à parte de audio 
     [SerializeField] private List<ScriptableSons> scriptableAudio;
-    [SerializeField] private AudioSource audioSource;
+    private AudioSource audioSource;
     private ScriptableSons scriptableAudioProximo;
     private ScriptableSons scriptableAudioPassos;
     private ScriptableSons scriptableAudioPorta;
@@ -26,9 +26,10 @@ public class Porta : MonoBehaviour
     [SerializeField] private Transform personagemLocationBase;
     private int qtePersonagens;
     private int charactereAtualNumber;
-    List<int> personagensUsados;
+    List<int> personagensUsados = new List<int>();
     private GameObject[] personagensInGame = new GameObject[2];
     private GameObject[] papelInGame = new GameObject[2];
+    private GameObject npc;
 
     //----------------------------------------------
 
@@ -44,64 +45,65 @@ public class Porta : MonoBehaviour
         scriptableAudioProximo = scriptableAudio[0];
         scriptableAudioPassos = scriptableAudio[1];
         scriptableAudioPorta = scriptableAudio[2];
+        qteAudiosProximo = scriptableAudioProximo.audios.Count;
+        qteAudiosPassos = scriptableAudioPassos.audios.Count;
+        qteAudiosPorta = scriptableAudioPorta.audios.Count;
 
-        qteAudiosProximo = qteAudios(scriptableAudioProximo);
-        qteAudiosPassos = qteAudios(scriptableAudioPassos);
-        qteAudiosPorta = qteAudios(scriptableAudioPorta);
+        qtePersonagens = listaPersonagens.Characteres.Count;
 
-        qtePersonagens = listaPersonagens.Characteres.Count;  
+        audioSource = GetComponent<AudioSource>();
     }
 
     //Abrir a porta
     public void OnMouseDown()
     {
-        if (interativo == false)
+        if (interativo == true && Cadeiras.NPCaqui == false)
         {
             // Botar essa variável p false enquanto não tiver NPC na cadeira (Sendo assim, é melhor essa variável estar no script geral da cena) ai vai ser interativo. Nome do script
-            //interativo = true; // Variável de controle para não ativar o mesmo evento simultâneamente 
+            interativo = false; // Variável de controle para não ativar o mesmo evento simultâneamente 
             
-            Debug.Log("ativou efeito");
-
-            tempoAudio = playAudios(qteAudiosProximo, scriptableAudioProximo);
-            StartCoroutine(tempoDeEspera(tempoAudio));
-
-            tempoAudio = playAudios(qteAudiosPorta, scriptableAudioPorta);
-            //Aqui que entra a animação (preciso da animação p fazer isso, acho q placeholder n ficaria legal)
-            StartCoroutine(tempoDeEspera(tempoAudio));
-
-            tempoAudio = playAudios(qteAudiosPassos, scriptableAudioPassos);
-            StartCoroutine(tempoDeEspera(tempoAudio));
-
-            spawnNPC();
+            StartCoroutine(temposTurno());
 
             Debug.Log("Aquiiiiiii " + tempoAudio);
         }
     }
 
     // Função que serve de tempo de espera entre ações
-    IEnumerator tempoDeEspera(float tempoCoroutine) 
+    /*IEnumerator tempoDeEspera(float tempoCoroutine) 
     {
         yield return new WaitForSeconds(tempoCoroutine);
-    }
-
-    // Bloco que pega um scriptable objetc com audios e devolve a quantidade de audios
-    private int qteAudios(ScriptableSons scriptable)
-    {
-        List<AudioClip> audio = scriptable.audios;
-        return (audio.Count);
-    }
+    }*/
 
     // Função que seleciona um audio aleatório do scriptable object, da play e retorna a duração desse audio
-    private float playAudios(int qteAudios, ScriptableSons scriptable) 
+    private IEnumerator playAudio(int qteAudios,ScriptableSons scriptable) 
     {
         int numeroAudio = Random.Range(0, qteAudios);
-        float tempoAudio;
         
-        audioSource.clip = scriptable.audios[numeroAudio]; // seta o clip no audio source
-        tempoAudio = scriptable.audios[numeroAudio].length; // pega o tempo do audio
-
+        audioSource.clip = scriptable.audios[numeroAudio]; // seta o clip no audio source        
+        
         audioSource.Play();
-        return(tempoAudio);
+        yield return new WaitForSeconds(scriptable.audios[numeroAudio].length);
+    }
+
+    private IEnumerator temposTurno() 
+    {
+        // Toca o áudio do próximo
+        yield return StartCoroutine(playAudio(qteAudiosProximo, scriptableAudioProximo));
+
+        // Toca o áudio da porta
+        yield return StartCoroutine(playAudio(qteAudiosPorta, scriptableAudioPorta));
+
+        //Aqui que entra a animação (preciso da animação p fazer isso, acho q placeholder n ficaria legal)
+
+        // Toca o áudio dos passos
+        yield return StartCoroutine(playAudio(qteAudiosPassos, scriptableAudioPassos));
+
+        // Spawn do NPC após a conclusão dos áudios
+        spawnNPC();
+
+        Debug.Log("Todos os áudios foram reproduzidos.");
+
+        interativo = true;
     }
 
     private void spawnNPC() 
@@ -114,8 +116,8 @@ public class Porta : MonoBehaviour
         personagensUsados.Add(charactereAtualNumber);
         // tenho a lista atualizada e o valor do personagem que vou pegar na lista de assets
 
-        Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
+        npc = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
 
         Instantiate(papel, papelLocationBase.position, Quaternion.identity);
-    }
+    }   
 }
