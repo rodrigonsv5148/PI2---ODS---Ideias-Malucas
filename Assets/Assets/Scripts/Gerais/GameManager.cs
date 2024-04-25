@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float dinheiro = 50f;
-    public float sustentabilidadeDoMundo = 20f;
+    static public int dinheiro = 50;
+    static public int sustentabilidadeDoMundo = 20;
     
 
     // Start is called before the first frame update

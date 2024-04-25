@@ -30,12 +30,14 @@ public class Porta : MonoBehaviour
     private GameObject[] personagensInGame = new GameObject[2];
     private GameObject[] papelInGame = new GameObject[2];
     private GameObject npc;
+    private bool spawn = true;
 
     //----------------------------------------------
 
     // Relacionados ao papel
     [SerializeField] private GameObject papel;
     [SerializeField] private Transform papelLocationBase;
+    private GameObject papelObject;
     
     //---------------------------------------------------
 
@@ -57,7 +59,7 @@ public class Porta : MonoBehaviour
     //Abrir a porta
     public void OnMouseDown()
     {
-        if (interativo == true && Cadeiras.NPCaqui == false)
+        if (interativo == true && Cadeiras.NPCaqui == false && spawn == true)
         {
             // Botar essa variável p false enquanto não tiver NPC na cadeira (Sendo assim, é melhor essa variável estar no script geral da cena) ai vai ser interativo. Nome do script
             interativo = false; // Variável de controle para não ativar o mesmo evento simultâneamente 
@@ -69,10 +71,10 @@ public class Porta : MonoBehaviour
     }
 
     // Função que serve de tempo de espera entre ações
-    /*IEnumerator tempoDeEspera(float tempoCoroutine) 
+    IEnumerator tempoDeEspera(float tempoCoroutine) 
     {
         yield return new WaitForSeconds(tempoCoroutine);
-    }*/
+    }
 
     // Função que seleciona um audio aleatório do scriptable object, da play e retorna a duração desse audio
     private IEnumerator playAudio(int qteAudios,ScriptableSons scriptable) 
@@ -87,13 +89,14 @@ public class Porta : MonoBehaviour
 
     private IEnumerator temposTurno() 
     {
+
         // Toca o áudio do próximo
         yield return StartCoroutine(playAudio(qteAudiosProximo, scriptableAudioProximo));
 
         // Toca o áudio da porta
         yield return StartCoroutine(playAudio(qteAudiosPorta, scriptableAudioPorta));
 
-        //Aqui que entra a animação (preciso da animação p fazer isso, acho q placeholder n ficaria legal)
+        //Aqui que entra a animação da porta (preciso da animação p fazer isso, acho q placeholder n ficaria legal)
 
         // Toca o áudio dos passos
         yield return StartCoroutine(playAudio(qteAudiosPassos, scriptableAudioPassos));
@@ -107,17 +110,28 @@ public class Porta : MonoBehaviour
     }
 
     private void spawnNPC() 
-    {
-        charactereAtualNumber = Random.Range(0, qtePersonagens);
-        while (personagensUsados.Contains(charactereAtualNumber))
+    {    
+        if (spawn) 
         {
             charactereAtualNumber = Random.Range(0, qtePersonagens);
+
+            while (personagensUsados.Contains(charactereAtualNumber))
+            {
+                charactereAtualNumber = Random.Range(0, qtePersonagens);
+            }
+            personagensUsados.Add(charactereAtualNumber);
+
+            // tenho a lista atualizada e o valor do personagem que vou pegar na lista de assets
+
+            if (personagensUsados.Count == qtePersonagens) spawn = false;
+
+            npc = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
+
+            papelObject = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
+
+            TextoPapel script = papelObject.GetComponent<TextoPapel>();
+
+            script.atualizarIndice(charactereAtualNumber);
         }
-        personagensUsados.Add(charactereAtualNumber);
-        // tenho a lista atualizada e o valor do personagem que vou pegar na lista de assets
-
-        npc = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
-
-        Instantiate(papel, papelLocationBase.position, Quaternion.identity);
     }   
 }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScriptablePersonagens
   Characteres:
   - {fileID: 4692742241724696246, guid: 442bb5576bd430d40abff1da37edfdf9, type: 3}
+  - {fileID: 4692742241724696246, guid: 5a32b267080330a4c8abb74ec3dc3434, type: 3}
