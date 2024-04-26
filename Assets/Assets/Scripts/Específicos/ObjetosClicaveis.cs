@@ -47,4 +47,9 @@ public class ObjetosClicaveis : MonoBehaviour
     {
         transform.position = posicaoInicial; // Devolve o objeto a posição inicial
     }
+
+    public void novaPosicao(Vector2 posicao) 
+    {
+        posicaoInicial = posicao;
+    }
 }

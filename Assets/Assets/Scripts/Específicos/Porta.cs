@@ -38,8 +38,13 @@ public class Porta : MonoBehaviour
     [SerializeField] private GameObject papel;
     [SerializeField] private Transform papelLocationBase;
     private GameObject papelObject;
-    
+
     //---------------------------------------------------
+
+    // Relacionados a cadeira
+
+    public GameObject cadeiraPrincipal;
+    private Cadeiras script;
 
     private void Start()
     {
@@ -54,19 +59,21 @@ public class Porta : MonoBehaviour
         qtePersonagens = listaPersonagens.Characteres.Count;
 
         audioSource = GetComponent<AudioSource>();
+
+        script = cadeiraPrincipal.GetComponent<Cadeiras>();
     }
 
     //Abrir a porta
     public void OnMouseDown()
     {
-        if (interativo == true && Cadeiras.NPCaqui == false && spawn == true)
+        if (interativo == true && script.qteNPC == 0 && spawn == true)
         {
             // Botar essa variável p false enquanto não tiver NPC na cadeira (Sendo assim, é melhor essa variável estar no script geral da cena) ai vai ser interativo. Nome do script
             interativo = false; // Variável de controle para não ativar o mesmo evento simultâneamente 
             
             StartCoroutine(temposTurno());
 
-            Debug.Log("Aquiiiiiii " + tempoAudio);
+            Debug.Log("Aquiiiiiii" + tempoAudio);
         }
     }
 
