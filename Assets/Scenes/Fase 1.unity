@@ -229,8 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f389b69afb97b1049a35fe4b41a0109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cadeiraOcupada: 0
   qteNPC: 0
+  porta: {fileID: 1495304184}
+  tagCadeira: 2
+  outraCadeira: {fileID: 0}
 --- !u!58 &105450530
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -646,8 +648,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b855701ed7bb0584a8c9aa0d39a72831, type: 2}
   listaPersonagens: {fileID: 11400000, guid: 7737c0c76bc9fd341b2311e948f5d6f7, type: 2}
   personagemLocationBase: {fileID: 1740021136}
+  cadeira: {fileID: 105450528}
   papel: {fileID: 3369501836604740031, guid: fe07aeff14629de4ea46180e0b6bfc6a, type: 3}
   papelLocationBase: {fileID: 1451736403}
+  papelInGame:
+  - {fileID: 0}
+  - {fileID: 0}
   cadeiraPrincipal: {fileID: 1740021134}
 --- !u!61 &1495304189
 BoxCollider2D:
@@ -923,8 +929,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f389b69afb97b1049a35fe4b41a0109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cadeiraOcupada: 0
   qteNPC: 0
+  porta: {fileID: 1495304184}
+  tagCadeira: 1
+  outraCadeira: {fileID: 105450528}
 --- !u!1 &1879049179
 GameObject:
   m_ObjectHideFlags: 0

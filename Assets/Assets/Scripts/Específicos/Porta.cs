@@ -27,17 +27,18 @@ public class Porta : MonoBehaviour
     private int qtePersonagens;
     private int charactereAtualNumber;
     List<int> personagensUsados = new List<int>();
-    private GameObject[] personagensInGame = new GameObject[2];
-    private GameObject[] papelInGame = new GameObject[2];
-    private GameObject npc;
+    private GameObject [] npcs = new GameObject[2];
     private bool spawn = true;
+    [SerializeField] private GameObject cadeira;
+    private Cadeiras cadeiraSecundaria;
 
     //----------------------------------------------
 
     // Relacionados ao papel
     [SerializeField] private GameObject papel;
     [SerializeField] private Transform papelLocationBase;
-    private GameObject papelObject;
+    public GameObject[] papelInGame = new GameObject[2];
+    private TextoPapel scriptPapel;
 
     //---------------------------------------------------
 
@@ -132,13 +133,21 @@ public class Porta : MonoBehaviour
 
             if (personagensUsados.Count == qtePersonagens) spawn = false;
 
-            npc = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
-
-            papelObject = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
-
-            TextoPapel script = papelObject.GetComponent<TextoPapel>();
-
-            script.atualizarIndice(charactereAtualNumber);
+            cadeiraSecundaria = cadeira.GetComponent<Cadeiras>();
+            
+            if (cadeiraSecundaria.qteNPC == 0 ) 
+            {
+                npcs[0] = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
+                papelInGame[0] = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
+                scriptPapel = papelInGame[0].GetComponent<TextoPapel>(); // pego o código do papel
+            }
+            else 
+            {
+                npcs[1] = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
+                papelInGame[1] = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
+                scriptPapel = papelInGame[1].GetComponent<TextoPapel>(); // pego o código do papel
+            }
+            scriptPapel.atualizarIndice(charactereAtualNumber);// Se der algum erro com a exibição do texto é provável que tenha haver com essa linha.
         }
     }   
 }
