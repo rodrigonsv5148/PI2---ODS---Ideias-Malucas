@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-    }   
+    }
+
+    public static void proximo(int dinheiroProjeto, int sustentatibilidadeProjeto) 
+    {
+        dinheiro -= dinheiroProjeto;
+        sustentabilidadeDoMundo -= sustentatibilidadeProjeto;
+    }
 
 }

@@ -14,8 +14,8 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: PI2 - ODS - Ideias Malucas
-  defaultCursor: {fileID: 2800000, guid: e7a72e56322674d43886af0ffde35739, type: 3}
-  cursorHotspot: {x: 2, y: 3}
+  defaultCursor: {fileID: 2800000, guid: 03098cc43aee84643b3578a1b0f375c1, type: 3}
+  cursorHotspot: {x: 10, y: 5}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1

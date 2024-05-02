@@ -7,7 +7,7 @@ public class TextoPapel : MonoBehaviour
 {
     public TMP_Text paper;
     public int indice;
-    private Ideias ideiasPersonagem;
+    public Ideias ideiasPersonagem;
     // Start is called before the first frame update
     
     void Start()

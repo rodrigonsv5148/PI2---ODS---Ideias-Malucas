@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - NPC
+  - Carimbo - Aprovado
+  - Carimbo - Negado
+  - Papel
   layers:
   - Default
   - TransparentFX
