@@ -19,7 +19,7 @@ public class Porta : MonoBehaviour
     private int qteAudiosPassos;
     private int qteAudiosPorta;
     private float tempoAudio;
-    //-----------------------------------------------
+    //----------------------------------------------
 
     // Relacionados aos personagens
     [SerializeField] private ScriptablePersonagens listaPersonagens;
@@ -40,7 +40,7 @@ public class Porta : MonoBehaviour
     public GameObject[] papelInGame = new GameObject[2];
     private TextoPapel scriptPapel;
 
-    //---------------------------------------------------
+    //----------------------------------------------
 
     // Relacionados a cadeira
 
@@ -140,12 +140,20 @@ public class Porta : MonoBehaviour
                 npcs[0] = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
                 papelInGame[0] = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
                 scriptPapel = papelInGame[0].GetComponent<TextoPapel>(); // pego o código do papel
+
+                // Nomeando os assets
+                npcs[0].name = "NPC " + charactereAtualNumber.ToString();
+                papelInGame[0].name = "Papel " + charactereAtualNumber.ToString();
             }
             else 
             {
                 npcs[1] = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
                 papelInGame[1] = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
                 scriptPapel = papelInGame[1].GetComponent<TextoPapel>(); // pego o código do papel
+
+                // Nomeando os assets
+                npcs[1].name = "NPC " + charactereAtualNumber.ToString();
+                papelInGame[1].name = "Papel " + charactereAtualNumber.ToString();
             }
             scriptPapel.atualizarIndice(charactereAtualNumber);// Se der algum erro com a exibição do texto é provável que tenha haver com essa linha.
         }

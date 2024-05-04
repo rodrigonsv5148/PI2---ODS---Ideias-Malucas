@@ -26,11 +26,11 @@ public class ObjetosClicaveis : MonoBehaviour
         posicaoAtual = posicaoInicial; // Passa a posição inicial para a atual, já que vamos alterar a atual mais a frente
     }
 
-
     protected virtual void OnMouseDrag()
     {
         // Converte a posição do mouse na tela para uma posição no mundo 3D
         Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (arrastavel) 
         {
             transform.position = posicaoMouse; // Faz o objeto seguir o mouse    
@@ -39,8 +39,7 @@ public class ObjetosClicaveis : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("ativou efeito");
-        }
-        
+        }   
     }
 
     protected void ativarEfeito(string nomeEfeito)

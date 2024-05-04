@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     {
         dinheiro -= dinheiroProjeto;
         sustentabilidadeDoMundo -= sustentatibilidadeProjeto;
+        Debug.Log(dinheiro);
+        Debug.Log(sustentabilidadeDoMundo);
     }
 
 }

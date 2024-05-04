@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d851572e6669cb418d4910a10681f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrastavel: 1
+  arrastavel: 0
 --- !u!114 &5060736407190227079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +320,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paper: {fileID: 3369501836503622019}
   indice: 0
+  ideiasPersonagem:
+    name: 
+    idade: 0
+    sexo: 
+    emprego: 
+    score: 
+    qteVisitas: 
+    conseguiuCredito: 
+    valorDoCredito: 
+    valorInvestimento: 0
+    ideia: 
+    valorSustentabilidade: 0
+    resposta: 
+  investimento: 0
+  sustentabilidade: 0
 --- !u!61 &4293523235145076083
 BoxCollider2D:
   m_ObjectHideFlags: 0
