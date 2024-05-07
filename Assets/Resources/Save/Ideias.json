@@ -1,33 +1,303 @@
 {
     "listaIdeias":[
         {
-            "name": "Rodrigo",
-            "idade": 26,
+            "name": "Jéfe Cruz",
+            "idade": 29,
             "sexo": "Masculino",
             "emprego": "Desempregado",
-            "score": "343",
-            "qteVisitas": "3",
-            "conseguiuCredito": "Nao",
-            "valorDoCredito": "Nao conseguiu",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
 
-            "valorInvestimento": 1000000,
-            "ideia": "botar Juan p jogar the last of us part 2 at� ele perceber que o jogo � uma obra de arte",
-            "valorSustentabilidade": 100000000,
+            "valorInvestimento": 70000,
+            "ideia": "Roda Elétrica: Uma roda de hamster gigante, capaz de gerar energia elétrica com pessoas correndo nela. É, ao mesmo tempo, uma usina elétrica e uma academia popular. ",
+            "valorSustentabilidade": 2,
             "resposta": ""
         },
         {
-            "name": "Juan",
-            "idade": 20,
+            "name": "Chico Jr.",
+            "idade": 37,
+            "sexo": "Masculino",
+            "emprego": "Dermatologista",
+            "score": "50%",
+            "qteVisitas": "2",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 150000,
+            "ideia": "Clínica de IA: Uma clínica sem médicos, apenas IA’s treinadas para realizar diagnósticos médicos.",
+            "valorSustentabilidade": -2,
+            "resposta": ""
+        },
+        {
+            "name": "Cláudia Farias",
+            "idade": 22,
+            "sexo": "Feminino",
+            "emprego": "Arquiteta",
+            "score": "100%",
+            "qteVisitas": "5",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 250000,
+            "ideia": "Mega Ventiladores: Uma série de ventiladores gigantes estrategicamente posicionados para carregar o ar fresco da praia e refrescar a cidade.",
+            "valorSustentabilidade": 2,
+            "resposta": ""
+        },
+        {
+            "name": "Milton de Souza",
+            "idade": 58,
+            "sexo": "Masculino",
+            "emprego": "Mecânico",
+            "score": "0%",
+            "qteVisitas": "1",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 180000,
+            "ideia": "Drones Caipora: Drones pesadamente armados, estrategicamente posicionados para repelir a caça ilegal.",
+            "valorSustentabilidade": -1,
+            "resposta": ""
+        },
+        {
+            "name": "Maria Ishikawa",
+            "idade": 35,
+            "sexo": "Feminino",
+            "emprego": "Ninja",
+            "score": "-",
+            "qteVisitas": "0?",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 90000,
+            "ideia": "Ninjas da Reciclagem: Uma equipe de ninjas invadirá as casas das pessoas e roubará seus lixos paras reciclar sem deixar rastros",
+            "valorSustentabilidade": 5,
+            "resposta": ""
+        },
+        {
+            "name": "Pedro Moura",
+            "idade": 25,
+            "sexo": "Masculino",
+            "emprego": "Microempreendedor",
+            "score": "33%",
+            "qteVisitas": "3",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 500000,
+            "ideia": "ViaEsgoto: Uma empresa de transporte que usará submarinos para atravessar os esgotos da cidade.",
+            "valorSustentabilidade": -3,
+            "resposta": ""
+        },
+        {
+            "name": "Ana Costa",
+            "idade": 47,
+            "sexo": "Feminino",
+            "emprego": "Chefe de Cozinha",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 50000,
+            "ideia": "Próteses cozinháveis: Próteses descartáveis de baixo custo, feitas de macarrão, que ficam prontas em três minutos.",
+            "valorSustentabilidade": 1,
+            "resposta": ""
+        },
+        {
+            "name": "Gustavo Maciel",
+            "idade": 31,
+            "sexo": "Masculino",
+            "emprego": "Professor",
+            "score": "75%",
+            "qteVisitas": "8",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 100000,
+            "ideia": "Gadow: Aplicativo para pessoas consideradas atraentes, porém de baixa renda, encontrarem outras pessoas dispostas a oferecer serviços laborais com custo a combinar.",
+            "valorSustentabilidade": 0,
+            "resposta": ""
+        },
+        {
+            "name": "Patrícia Paz",
+            "idade": 62,
+            "sexo": "Feminino",
+            "emprego": "Professora",
+            "score": "71%",
+            "qteVisitas": "7",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 250000,
+            "ideia": "LIBRAS VR: Óculos VR, que captam o que as pessoas falam e projetam os símbolos em LIBRAS direto na visão do usuário, ou captam sinais em LIBRAS e transformam em voz para o usuário.",
+            "valorSustentabilidade": 4,
+            "resposta": ""
+        },
+        {
+            "name": "CONFIDENCIAL",
+            "idade": 0,
+            "sexo": "CONFIDENCIAL",
+            "emprego": "CONFIDENCIAL",
+            "score": "CONFIDENCIAL",
+            "qteVisitas": "CONFIDENCIAL",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 300000,
+            "ideia": "Capacete anti alien: Capacete capaz de proteger o usuário da influência de alienígenas telepatas.",
+            "valorSustentabilidade": 0,
+            "resposta": ""
+        },
+        {
+            "name": "Jaqueline Cássia",
+            "idade": 41,
+            "sexo": "Feminino",
+            "emprego": "Engenheira",
+            "score": "100%",
+            "qteVisitas": "3",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 50000,
+            "ideia": "Moto sustentável: Motos que não utilizarão motores de qualquer tipo. Possuirão pedais para que as pessoas as movam com a força de tração de seus corpos.",
+            "valorSustentabilidade": 1,
+            "resposta": ""
+        },
+        {
+            "name": "Antônio Do Bus",
+            "idade": 33,
+            "sexo": "Masculino",
+            "emprego": "Motorista de Transporte Alternativo",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 175000,
+            "ideia": "Galos robôs: A melhor alternativa para realizar uma rinha de galo dentro da lei.",
+            "valorSustentabilidade": 0,
+            "resposta": ""
+        },
+        {
+            "name": "José Júnior",
+            "idade": 27,
+            "sexo": "Masculino",
+            "emprego": "Motorista de Transporte Alternativo",
+            "score": "0%",
+            "qteVisitas": "2",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 95000,
+            "ideia": "Interpretador de Sonho: Aplicativo com IA extensivamente treinada para interpretar sonhos, possibilitando sempre ganhar no bicho.",
+            "valorSustentabilidade": 0,
+            "resposta": ""
+        },
+        {
+            "name": "Vítor Campos",
+            "idade": 19,
+            "sexo": "Masculino",
+            "emprego": "Tiktoker",
+            "score": "100%",
+            "qteVisitas": "2",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 60000,
+            "ideia": "Roupas Comestíveis: Cansado de repetir as mesmas roupas? Agora isso não será uma possibilidade, pois elas vencerão em menos de uma semana.",
+            "valorSustentabilidade": -3,
+            "resposta": ""
+        },
+        {
+            "name": "Millena Francine",
+            "idade": 29,
+            "sexo": "Feminino",
+            "emprego": "Nutricionista",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 70000,
+            "ideia": "Substituto de refeição: Tudo que é necessário para se manter nutrido um dia inteiro em uma garrafa. Com os sabores: Macarrão com Carne Moída; Banana e Canela; Batata Doce e Frango.",
+            "valorSustentabilidade": 1,
+            "resposta": ""
+        },
+        {
+            "name": "Paulo Pinta",
+            "idade": 42,
+            "sexo": "Masculino",
+            "emprego": "Biólogo",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 350000,
+            "ideia": "Pâncreas 2: Órgão sintético capaz de digerir madeira e outras formações vegetais anteriormente incompatíveis com a alimentação humana.",
+            "valorSustentabilidade": 1,
+            "resposta": ""
+        },
+        {
+            "name": "Julio Gaita",
+            "idade": 31,
             "sexo": "Masculino",
             "emprego": "Desempregado",
-            "score": "0",
-            "qteVisitas": "1",
-            "conseguiuCredito": "Nao",
-            "valorDoCredito": "Nao conseguiu",
+            "score": "20%",
+            "qteVisitas": "10",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
 
-            "valorInvestimento": 1000,
-            "ideia": "Jogar the last of us part 2 at� ele perceber que o jogo � uma obra de arte",
-            "valorSustentabilidade": 100000000,
+            "valorInvestimento": 300000,
+            "ideia": "Casas Voadoras: Casas sustentadas no ar por balões de gás hélio, uma alternativa para a habitação em locais onde as terras já foram ocupadas.",
+            "valorSustentabilidade": -1,
+            "resposta": ""
+        },
+        {
+            "name": "Ana Michael",
+            "idade": 33,
+            "sexo": "Feminino",
+            "emprego": "Engenheira",
+            "score": "40%",
+            "qteVisitas": "5",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 50000,
+            "ideia": "Canudo Queloniofóbico: Canudos equipados com motores e sensores para fugir de tartarugas.",
+            "valorSustentabilidade": 1,
+            "resposta": ""
+        },
+        {
+            "name": "Túlio Jordan",
+            "idade": 22,
+            "sexo": "Masculino",
+            "emprego": "Cervejeiro",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 80000,
+            "ideia": "Cerveja Antigripal: Cerveja que previne e combate os sintomas da gripe.",
+            "valorSustentabilidade": 0,
+            "resposta": ""
+        },
+        {
+            "name": "Leonardo Fontana",
+            "idade": 35,
+            "sexo": "Masculino",
+            "emprego": "Palhaço",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 220000,
+            "ideia": "Circo dos Sapos: Um circo com sapos treinados para atrações incríveis.",
+            "valorSustentabilidade": -2,
             "resposta": ""
         }
     ]
