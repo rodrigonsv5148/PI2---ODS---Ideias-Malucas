@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     static public int dinheiro = 50;
     static public int sustentabilidadeDoMundo = 20;
+    static public int qtePropostas = 0;
     
 
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
 
     public static void proximo(int dinheiroProjeto, int sustentatibilidadeProjeto) 

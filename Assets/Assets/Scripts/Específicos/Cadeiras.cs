@@ -23,6 +23,8 @@ public class Cadeiras : MonoBehaviour
     [SerializeField] private float Xaxis;
     [SerializeField] private float Yaxis;
     private Vector3 xy = new Vector3();
+    private Coroutine aumentarEscala;
+    private Coroutine diminuirEscala;
 
     private void Start()
     {
@@ -33,7 +35,7 @@ public class Cadeiras : MonoBehaviour
         }
         
         xy.x = Xaxis;
-        xy.y = Yaxis;
+        xy.y = Yaxis;        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,9 +47,21 @@ public class Cadeiras : MonoBehaviour
             if (qteNPC == 1) 
             {        
                 localizacaoCadeiraSegundaria = collision.GetComponent<ObjetosClicaveis>();
+                
                 localizacaoCadeiraSegundaria.novaPosicao(transform.position + xy);
-                if (tagCadeira == 1) Invoke("papelEntrando", 1.5f);
-                if (tagCadeira == 2) Invoke("papelSaindo", 1.5f);
+                
+                if (tagCadeira == 1) 
+                {
+                    aumentarEscala = StartCoroutine(localizacaoCadeiraSegundaria.novaEscala(false));
+                    Invoke("papelEntrando", 1f);
+
+                }
+
+                if (tagCadeira == 2) 
+                {
+                    diminuirEscala = StartCoroutine(localizacaoCadeiraSegundaria.novaEscala(true));       
+                    Invoke("papelSaindo", 1f); 
+                }
                 print("NPC sentou");
             }            
         }
@@ -62,8 +76,16 @@ public class Cadeiras : MonoBehaviour
             if(qteNPC == 0) 
             {
                 print("NPC saiu");
-                if (tagCadeira == 1) CancelInvoke("papelEntrando");
-                if (tagCadeira == 2) CancelInvoke("papelSaindo");
+                if (tagCadeira == 1) 
+                {
+                    StopCoroutine(aumentarEscala);
+                    CancelInvoke("papelEntrando"); 
+                }
+                if (tagCadeira == 2) 
+                {
+                    StopCoroutine(diminuirEscala);
+                    CancelInvoke("papelSaindo"); 
+                }
             }  
         }
     }

@@ -56,4 +56,18 @@ public class ObjetosClicaveis : MonoBehaviour
     {
         posicaoInicial = posicao;
     }
+
+    public IEnumerator novaEscala(bool verdade) 
+    {
+        if (verdade == true) 
+        {
+            transform.localScale = new Vector3(0.3f, 0.3f, 1f);
+        }
+        else 
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+
+        yield return new WaitForSeconds(1f);
+    }
 }

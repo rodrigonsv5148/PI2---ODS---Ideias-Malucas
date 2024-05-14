@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Passos
   m_EditorClassIdentifier: 
   audios:
-  - {fileID: 8300000, guid: c5999762485be454a8e705a698493a0d, type: 3}
+  - {fileID: 8300000, guid: 355156e4f832db3459192e9ab67df85a, type: 3}
+  - {fileID: 8300000, guid: b8f8417830f61784da1ede04b5ea519c, type: 3}
+  - {fileID: 8300000, guid: 14ef5723d0ebb33488156cad26e01287, type: 3}
+  - {fileID: 8300000, guid: 760b002d7c8d5e14884b55cbd7d957fa, type: 3}
+  - {fileID: 8300000, guid: 1e5425698bdab924986b69b149a0c641, type: 3}

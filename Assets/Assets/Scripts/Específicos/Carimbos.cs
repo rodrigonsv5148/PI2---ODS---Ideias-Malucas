@@ -58,18 +58,17 @@ public class Carimbos : ObjetosClicaveis
         switch (estado)
         {
             case 1://estado de negação
-
               
-                Debug.Log(estado);
+                GameManager.qtePropostas++;
 
                 destruirPapelENPC();
                 break;
 
             case 2: //estado de aprovação
                 
-                GameManager.proximo(scriptPapel.investimento, scriptPapel.sustentabilidade);
+                GameManager.qtePropostas++;
 
-                Debug.Log(estado);
+                GameManager.proximo(scriptPapel.investimento, scriptPapel.sustentabilidade);
                 
                 destruirPapelENPC();
                 break;
