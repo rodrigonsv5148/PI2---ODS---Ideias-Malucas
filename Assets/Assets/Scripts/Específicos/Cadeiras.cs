@@ -19,6 +19,11 @@ public class Cadeiras : MonoBehaviour
     private Cadeiras scriptOutraCadeira = null;
     private string nomeDoComando;
 
+    // Atributos referentes a correção de localização
+    [SerializeField] private float Xaxis;
+    [SerializeField] private float Yaxis;
+    private Vector3 xy = new Vector3();
+
     private void Start()
     {
         scriptPorta = porta.GetComponent<Porta>();
@@ -26,6 +31,9 @@ public class Cadeiras : MonoBehaviour
         {
             scriptOutraCadeira = outraCadeira.GetComponent<Cadeiras>();
         }
+        
+        xy.x = Xaxis;
+        xy.y = Yaxis;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,9 +43,9 @@ public class Cadeiras : MonoBehaviour
             qteNPC++;
 
             if (qteNPC == 1) 
-            {
+            {        
                 localizacaoCadeiraSegundaria = collision.GetComponent<ObjetosClicaveis>();
-                localizacaoCadeiraSegundaria.novaPosicao(transform.position);
+                localizacaoCadeiraSegundaria.novaPosicao(transform.position + xy);
                 if (tagCadeira == 1) Invoke("papelEntrando", 1.5f);
                 if (tagCadeira == 2) Invoke("papelSaindo", 1.5f);
                 print("NPC sentou");

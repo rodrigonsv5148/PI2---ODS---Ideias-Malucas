@@ -17,7 +17,7 @@ public class TextoPapel : MonoBehaviour
     {
         ideiasPersonagem = IdeiasControle.Informacoes(indice);
 
-        paper.text = ideiasPersonagem.ideia + "\n\n\n$$$$" + ideiasPersonagem.valorInvestimento;
+        paper.text = ideiasPersonagem.ideia + "\n\n$$" + ideiasPersonagem.valorInvestimento;
 
         investimento = ideiasPersonagem.valorInvestimento;
         sustentabilidade = ideiasPersonagem.valorSustentabilidade;
