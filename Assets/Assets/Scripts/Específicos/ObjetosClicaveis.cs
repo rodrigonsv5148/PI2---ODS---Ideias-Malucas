@@ -61,11 +61,11 @@ public class ObjetosClicaveis : MonoBehaviour
     {
         if (verdade == true) 
         {
-            transform.localScale = new Vector3(0.3f, 0.3f, 1f);
+            transform.localScale = new Vector3(0.075f, 0.075f, 1f);
         }
         else 
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(0.25f, 0.25f, 1f);
         }
 
         yield return new WaitForSeconds(1f);
