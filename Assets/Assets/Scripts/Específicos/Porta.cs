@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 using UnityEngine.Audio;
+//using UnityEngine.Windows;
 
 
 public class Porta : MonoBehaviour
 {
     private bool interativo = true;
     
+
     //Variáveis relativas à parte de audio 
-    [SerializeField] private List<ScriptableSons> scriptableAudio;
+
+    public List<ScriptableSons> scriptableAudio;
     private AudioSource audioSource;
     private ScriptableSons scriptableAudioProximo;
     private ScriptableSons scriptableAudioPassos;
@@ -19,10 +23,13 @@ public class Porta : MonoBehaviour
     private int qteAudiosPassos;
     private int qteAudiosPorta;
     private float tempoAudio;
+
     //----------------------------------------------
 
+
     // Relacionados aos personagens
-    [SerializeField] private ScriptablePersonagens listaPersonagens;
+
+    public ScriptablePersonagens listaPersonagens;
     [SerializeField] private Transform personagemLocationBase;
     private int qtePersonagens;
     private int charactereAtualNumber;
@@ -34,7 +41,9 @@ public class Porta : MonoBehaviour
 
     //----------------------------------------------
 
+
     // Relacionados ao papel
+
     [SerializeField] private GameObject papel;
     [SerializeField] private Transform papelLocationBase;
     public GameObject[] papelInGame = new GameObject[2];
@@ -42,11 +51,16 @@ public class Porta : MonoBehaviour
 
     //----------------------------------------------
 
+
     // Relacionados a cadeira
 
     public GameObject cadeiraPrincipal;
     private Cadeiras script;
 
+    //----------------------------------------------
+
+
+    // Inicialização
     private void Start()
     {
         // Algoritmo para pegar a quantidade de audios do scriptable object
@@ -62,6 +76,7 @@ public class Porta : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         script = cadeiraPrincipal.GetComponent<Cadeiras>();
+
     }
 
     //Abrir a porta
@@ -78,11 +93,17 @@ public class Porta : MonoBehaviour
         }
     }
 
+
+
+
     // Função que serve de tempo de espera entre ações
     IEnumerator tempoDeEspera(float tempoCoroutine) 
     {
         yield return new WaitForSeconds(tempoCoroutine);
     }
+
+
+
 
     // Função que seleciona um audio aleatório do scriptable object, da play e retorna a duração desse audio
     private IEnumerator playAudio(int qteAudios,ScriptableSons scriptable) 
@@ -94,6 +115,9 @@ public class Porta : MonoBehaviour
         audioSource.Play();
         yield return new WaitForSeconds(scriptable.audios[numeroAudio].length);
     }
+
+
+
 
     private IEnumerator temposTurno() 
     {
@@ -116,6 +140,9 @@ public class Porta : MonoBehaviour
 
         interativo = true;
     }
+
+
+
 
     private void spawnNPC() 
     {    

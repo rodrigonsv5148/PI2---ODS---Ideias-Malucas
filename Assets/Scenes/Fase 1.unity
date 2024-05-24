@@ -592,7 +592,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03f310938a756a948bb1c88ceddac6e7, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -2532,9 +2532,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1740021134}
     - target: {fileID: 3773196055547385375, guid: bb19d0915b7d6ce408ce826ab663d0b4, type: 3}
+      propertyPath: listaPersonagens
+      value: 
+      objectReference: {fileID: 11400000, guid: 6dab2bd828d1d244ebb78cb554163c6a, type: 2}
+    - target: {fileID: 3773196055547385375, guid: bb19d0915b7d6ce408ce826ab663d0b4, type: 3}
       propertyPath: papelLocationBase
       value: 
       objectReference: {fileID: 1451736403}
+    - target: {fileID: 3773196055547385375, guid: bb19d0915b7d6ce408ce826ab663d0b4, type: 3}
+      propertyPath: caminhoAudiosPorta
+      value: Assets/Assets/Audios/SFX/Porta
+      objectReference: {fileID: 0}
     - target: {fileID: 3773196055547385375, guid: bb19d0915b7d6ce408ce826ab663d0b4, type: 3}
       propertyPath: personagemLocationBase
       value: 

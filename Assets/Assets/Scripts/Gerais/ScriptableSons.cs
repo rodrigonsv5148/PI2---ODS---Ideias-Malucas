@@ -6,4 +6,5 @@ using UnityEngine;
 public class ScriptableSons : ScriptableObject
 {
     public List<AudioClip> audios;
+    
 }
