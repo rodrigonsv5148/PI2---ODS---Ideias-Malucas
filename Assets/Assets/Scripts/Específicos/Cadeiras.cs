@@ -93,12 +93,14 @@ public class Cadeiras : MonoBehaviour
     public void papelSaindo () 
     {
         scriptPorta.papelInGame[0].SetActive(false);
+        scriptPorta.informacoesInGame[0].SetActive(false);
     }
     public void papelEntrando()
     {
         if (scriptOutraCadeira.qteNPC == 0) 
         {
             scriptPorta.papelInGame[0].SetActive(true);
+            scriptPorta.informacoesInGame[0].SetActive(true);
         }
     }
     //Quando sentar na cadeira secundaria (1), o papel irá sumir

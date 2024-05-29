@@ -59,6 +59,13 @@ public class Porta : MonoBehaviour
 
     //----------------------------------------------
 
+    // Informacoes Personagens
+    [SerializeField] private GameObject informacoes;
+    [SerializeField] private Transform infosLocationBase;
+    public GameObject[] informacoesInGame = new GameObject[2];
+    private InformacoesPersonagens scriptInfos;
+    //----------------------------------------------
+
 
     // Inicialização
     private void Start()
@@ -79,6 +86,8 @@ public class Porta : MonoBehaviour
 
     }
 
+
+
     //Abrir a porta
     public void OnMouseDown()
     {
@@ -94,14 +103,11 @@ public class Porta : MonoBehaviour
     }
 
 
-
-
     // Função que serve de tempo de espera entre ações
     IEnumerator tempoDeEspera(float tempoCoroutine) 
     {
         yield return new WaitForSeconds(tempoCoroutine);
     }
-
 
 
 
@@ -115,7 +121,6 @@ public class Porta : MonoBehaviour
         audioSource.Play();
         yield return new WaitForSeconds(scriptable.audios[numeroAudio].length);
     }
-
 
 
 
@@ -143,7 +148,6 @@ public class Porta : MonoBehaviour
 
 
 
-
     private void spawnNPC() 
     {    
         if (spawn) 
@@ -166,23 +170,34 @@ public class Porta : MonoBehaviour
             {
                 npcs[0] = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
                 papelInGame[0] = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
+                informacoesInGame[0] = Instantiate(informacoes, infosLocationBase.position, Quaternion.identity);
+
                 scriptPapel = papelInGame[0].GetComponent<TextoPapel>(); // pego o código do papel
+                scriptInfos = informacoesInGame[0].GetComponent<InformacoesPersonagens>();
 
                 // Nomeando os assets
                 npcs[0].name = "NPC " + charactereAtualNumber.ToString();
                 papelInGame[0].name = "Papel " + charactereAtualNumber.ToString();
+                informacoesInGame[0].name = "infoNPC" + charactereAtualNumber.ToString();
+                
             }
             else 
             {
                 npcs[1] = Instantiate(listaPersonagens.Characteres[charactereAtualNumber], personagemLocationBase.position, Quaternion.identity);
                 papelInGame[1] = Instantiate(papel, papelLocationBase.position, Quaternion.identity);
+                informacoesInGame[1] = Instantiate(informacoes, infosLocationBase.position, Quaternion.identity);
+
                 scriptPapel = papelInGame[1].GetComponent<TextoPapel>(); // pego o código do papel
+                scriptInfos = informacoesInGame[1].GetComponent<InformacoesPersonagens>();
 
                 // Nomeando os assets
                 npcs[1].name = "NPC " + charactereAtualNumber.ToString();
                 papelInGame[1].name = "Papel " + charactereAtualNumber.ToString();
+                informacoesInGame[1].name = "infoNPC" + charactereAtualNumber.ToString();
             }
+
             scriptPapel.atualizarIndice(charactereAtualNumber);// Se der algum erro com a exibição do texto é provável que tenha haver com essa linha.
+            scriptInfos.novoIndice(charactereAtualNumber);
         }
     }   
 }

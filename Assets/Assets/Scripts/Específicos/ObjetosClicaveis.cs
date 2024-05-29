@@ -80,7 +80,7 @@ public class ObjetosClicaveis : MonoBehaviour
     {
         Cursor.SetCursor(null, defaultHotspot, CursorMode.Auto);
 
-        transform.position = posicaoInicial; // Devolve o objeto a posição inicial
+        if (arrastavel) transform.position = posicaoInicial; // Devolve o objeto a posição inicial
     }
 
     public void novaPosicao(Vector2 posicao) 
