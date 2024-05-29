@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrastavel: 1
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
 --- !u!50 &-5404131377396028384
 Rigidbody2D:
   serializedVersion: 4

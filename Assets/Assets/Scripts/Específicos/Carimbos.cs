@@ -22,6 +22,7 @@ public class Carimbos : ObjetosClicaveis
 
         if (Input.GetMouseButtonDown(1))
         {
+            audioSourceclique.Play();
             carimbada();
             Debug.Log("ativou efeito carimbo");
         }
@@ -58,8 +59,10 @@ public class Carimbos : ObjetosClicaveis
         switch (estado)
         {
             case 1://estado de negação
-              
+                
                 GameManager.qtePropostas++;
+
+                GameManager.propostas();
 
                 destruirPapelENPC();
                 break;
@@ -69,7 +72,8 @@ public class Carimbos : ObjetosClicaveis
                 GameManager.qtePropostas++;
 
                 GameManager.proximo(scriptPapel.investimento, scriptPapel.sustentabilidade);
-                
+
+                GameManager.propostas();
                 destruirPapelENPC();
                 break;
 

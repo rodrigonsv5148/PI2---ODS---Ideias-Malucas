@@ -222,6 +222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrastavel: 0
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
+  somMouse: {fileID: 8300000, guid: a6a942374dda75f48b14783edeff7bb8, type: 3}
+  somEspecial: {fileID: 8300000, guid: 285959258ef2bb94da648c2d16c0f9b5, type: 3}
 --- !u!60 &23432704
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -895,6 +898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrastavel: 0
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
+  somMouse: {fileID: 8300000, guid: a6a942374dda75f48b14783edeff7bb8, type: 3}
+  somEspecial: {fileID: 8300000, guid: 285959258ef2bb94da648c2d16c0f9b5, type: 3}
 --- !u!60 &478641767
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1284,6 +1290,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrastavel: 1
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
+  somMouse: {fileID: 8300000, guid: a6a942374dda75f48b14783edeff7bb8, type: 3}
+  somEspecial: {fileID: 8300000, guid: 285959258ef2bb94da648c2d16c0f9b5, type: 3}
   tagPapel: Papel
   tagCarimboNao: Carimbo - Negado
   tagCarimboSim: Carimbo - Aprovado
@@ -1806,6 +1815,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrastavel: 1
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
+  somMouse: {fileID: 8300000, guid: a6a942374dda75f48b14783edeff7bb8, type: 3}
+  somEspecial: {fileID: 8300000, guid: 285959258ef2bb94da648c2d16c0f9b5, type: 3}
   tagPapel: Papel
   tagCarimboNao: Carimbo - Negado
   tagCarimboSim: Carimbo - Aprovado
@@ -2238,6 +2250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrastavel: 0
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
+  somMouse: {fileID: 8300000, guid: a6a942374dda75f48b14783edeff7bb8, type: 3}
+  somEspecial: {fileID: 8300000, guid: 285959258ef2bb94da648c2d16c0f9b5, type: 3}
 --- !u!60 &2000422658
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2384,6 +2399,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrastavel: 0
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
+  somMouse: {fileID: 8300000, guid: a6a942374dda75f48b14783edeff7bb8, type: 3}
+  somEspecial: {fileID: 8300000, guid: 285959258ef2bb94da648c2d16c0f9b5, type: 3}
 --- !u!212 &2061701146
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2598,10 +2616,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3922917259916805616, guid: bb19d0915b7d6ce408ce826ab663d0b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8569539592741368418}
   m_SourcePrefab: {fileID: 100100000, guid: bb19d0915b7d6ce408ce826ab663d0b4, type: 3}
 --- !u!4 &8569539592741368413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4805352937130861502, guid: bb19d0915b7d6ce408ce826ab663d0b4, type: 3}
   m_PrefabInstance: {fileID: 3773196056237314531}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8569539592741368418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156523884516545555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d851572e6669cb418d4910a10681f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrastavel: 0
+  hoverCursor: {fileID: 2800000, guid: 908b144ca1adb0542a7b61aefca5692f, type: 3}
+  somMouse: {fileID: 8300000, guid: a6a942374dda75f48b14783edeff7bb8, type: 3}
+  somEspecial: {fileID: 0}

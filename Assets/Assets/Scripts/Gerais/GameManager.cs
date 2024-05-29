@@ -1,31 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static public int dinheiro = 50;
-    static public int sustentabilidadeDoMundo = 20;
-    static public int qtePropostas = 0;
-    
+    static public int dinheiro = 1400000;
+    static public int sustentabilidadeDoMundo = 0;
+    static public int qtePropostas;
 
     // Start is called before the first frame update
     void Start()
     {
+        qtePropostas = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
- 
+        
     }
 
+    // Para projetos aprovados:
     public static void proximo(int dinheiroProjeto, int sustentatibilidadeProjeto) 
     {
         dinheiro -= dinheiroProjeto;
         sustentabilidadeDoMundo -= sustentatibilidadeProjeto;
-        Debug.Log(dinheiro);
-        Debug.Log(sustentabilidadeDoMundo);
     }
 
+    public static void propostas() 
+    {
+        Debug.Log(dinheiro);
+        Debug.Log(sustentabilidadeDoMundo);
+        Debug.Log(qtePropostas);
+
+        // 0 = falha por falta de dinheiro
+        // 1 = falha por falta de sustentabilidade
+        // 2 = vitória por passar mais um dia
+
+        if (qtePropostas <= 7)
+        {
+            if (dinheiro <= 0) SceneManager.LoadScene("FaltouDinheiro");
+
+            if (sustentabilidadeDoMundo < 0) SceneManager.LoadScene("FaltouSustentabilidade");
+        }
+        else
+        {
+            if (sustentabilidadeDoMundo > 0 && dinheiro > 0) SceneManager.LoadScene("Vitoria");
+
+            else if (dinheiro <= 0) SceneManager.LoadScene("FaltouDinheiro");
+
+            else if (sustentabilidadeDoMundo < 0) SceneManager.LoadScene("FaltouSustentabilidade");
+        }
+    }
 }
