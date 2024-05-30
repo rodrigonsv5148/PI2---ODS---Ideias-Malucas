@@ -40,13 +40,13 @@ public class GameManager : MonoBehaviour
 
         if (qtePropostas <= 7)
         {
-            if (dinheiro <= 0) SceneManager.LoadScene("FaltouDinheiro");
+            if (dinheiro < 0) SceneManager.LoadScene("FaltouDinheiro");
         }
         else
         {
             if (sustentabilidadeDoMundo > 0 && dinheiro > 0) SceneManager.LoadScene("Vitoria");
 
-            else if (dinheiro <= 0) SceneManager.LoadScene("FaltouDinheiro");
+            else if (dinheiro < 0) SceneManager.LoadScene("FaltouDinheiro");
 
             else if (sustentabilidadeDoMundo < 0) SceneManager.LoadScene("FaltouSustentabilidade");
         }

@@ -12,8 +12,28 @@ public class Carimbos : ObjetosClicaveis
     private int indicePapel;
     private TextoPapel scriptPapel;
 
+    // Animação de Thomas
+    public GameObject thomas;
+    private ThomasAnimacoes animacoes;
+
+    protected override void Start() 
+    {
+        animacoes = thomas.GetComponent<ThomasAnimacoes>();
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSourceclique = gameObject.AddComponent<AudioSource>();
+        configurarAudio(somMouse, audioSource);
+        configurarAudio(somEspecial, audioSourceclique);
+
+        posicaoInicial = transform.position; // Pega a posição inicial do objeto
+    }
+
     protected override void OnMouseDrag() 
     {
+        //animacoes.animacaoPlay(0);
+
+        animacoes.controlador.SetBool("Pensando", true);
+
         Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (arrastavel)
         {
@@ -46,6 +66,9 @@ public class Carimbos : ObjetosClicaveis
 
     private void OnTriggerExit2D(Collider2D collision) 
     {
+        //animacoes.animacaoPlay(1);
+        animacoes.controlador.SetBool("Pensando", false);
+
         Debug.Log("saiu");
         if (collision.gameObject.tag == tagPapel) 
         {
@@ -56,10 +79,16 @@ public class Carimbos : ObjetosClicaveis
 
     private void carimbada() 
     {
+        animacoes.controlador.SetBool("Pensando", false);
+
         switch (estado)
         {
             case 1://estado de negação
-                
+
+                //animacoes.animacaoPlay(3);
+
+                animacoes.controlador.SetTrigger("Aprovado");
+
                 GameManager.qtePropostas++;
 
                 GameManager.propostas();
@@ -68,6 +97,10 @@ public class Carimbos : ObjetosClicaveis
                 break;
 
             case 2: //estado de aprovação
+
+                //animacoes.animacaoPlay(2);
+                
+                animacoes.controlador.SetTrigger("Rejeitado");
                 
                 GameManager.qtePropostas++;
 
@@ -86,6 +119,7 @@ public class Carimbos : ObjetosClicaveis
 
     private void destruirPapelENPC() 
     {
+        Destroy(GameObject.Find("infoNPC " + indicePapel.ToString()));
         Destroy(GameObject.Find("NPC " + indicePapel.ToString()));
         Destroy(GameObject.Find("Papel " + indicePapel.ToString()));
     }

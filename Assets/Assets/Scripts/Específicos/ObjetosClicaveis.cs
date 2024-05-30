@@ -30,7 +30,7 @@ public class ObjetosClicaveis : MonoBehaviour
     //--------------------------------------------------------
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSourceclique = gameObject.AddComponent<AudioSource>();

@@ -193,7 +193,7 @@ public class Porta : MonoBehaviour
                 // Nomeando os assets
                 npcs[1].name = "NPC " + charactereAtualNumber.ToString();
                 papelInGame[1].name = "Papel " + charactereAtualNumber.ToString();
-                informacoesInGame[1].name = "infoNPC" + charactereAtualNumber.ToString();
+                informacoesInGame[1].name = "infoNPC " + charactereAtualNumber.ToString();
             }
 
             scriptPapel.atualizarIndice(charactereAtualNumber);// Se der algum erro com a exibição do texto é provável que tenha haver com essa linha.

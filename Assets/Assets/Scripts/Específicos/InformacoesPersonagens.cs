@@ -14,7 +14,7 @@ public class InformacoesPersonagens : MonoBehaviour
     {
         repositorioIdeias = IdeiasControle.Informacoes(indice);
 
-        infos.text = "Nome: " + repositorioIdeias.name + "\n" + "Idade: " + repositorioIdeias.idade + "\n" + "Emprego: " + repositorioIdeias.emprego + "\n" + "Score: " + repositorioIdeias.score + "\n" + "Visitas: " + repositorioIdeias.qteVisitas + "\n";
+        infos.text = "Nome: " + repositorioIdeias.name + "\n\n" + "Idade: " + repositorioIdeias.idade + "\n\n" + "Emprego: " + repositorioIdeias.emprego + "\n\n" + "Score: " + repositorioIdeias.score + "\n\n" + "Visitas: " + repositorioIdeias.qteVisitas + "\n\n"  + "Investimento: \n$$" + repositorioIdeias.valorInvestimento + "\n\n";
     }
 
     public void novoIndice(int inidicePersonagem)
