@@ -31,10 +31,10 @@
             "resposta": ""
         },
         {
-            "name": "Cláudia Farias",
+            "name": "Cláudio Farias",
             "idade": 22,
-            "sexo": "Feminino",
-            "emprego": "Arquiteta",
+            "sexo": "Masculino",
+            "emprego": "Arquiteto",
             "score": "100%",
             "qteVisitas": "5",
             "conseguiuCredito": "",
@@ -47,7 +47,7 @@
         },
         {
             "name": "Milton de Souza",
-            "idade": 58,
+            "idade": 38,
             "sexo": "Masculino",
             "emprego": "Mecânico",
             "score": "0%",
@@ -61,9 +61,9 @@
             "resposta": ""
         },
         {
-            "name": "Maria Ishikawa",
+            "name": "Mário Ishikawa",
             "idade": 35,
-            "sexo": "Feminino",
+            "sexo": "Masculino",
             "emprego": "Ninja",
             "score": "-",
             "qteVisitas": "0?",
@@ -91,9 +91,9 @@
             "resposta": ""
         },
         {
-            "name": "Ana Costa",
+            "name": "Rodrigo Costa",
             "idade": 47,
-            "sexo": "Feminino",
+            "sexo": "Masculino",
             "emprego": "Chefe de Cozinha",
             "score": "-",
             "qteVisitas": "0",
@@ -121,10 +121,10 @@
             "resposta": ""
         },
         {
-            "name": "Patrícia Paz",
-            "idade": 62,
-            "sexo": "Feminino",
-            "emprego": "Professora",
+            "name": "Patrique Paz",
+            "idade": 42,
+            "sexo": "Masculino",
+            "emprego": "Professor",
             "score": "71%",
             "qteVisitas": "7",
             "conseguiuCredito": "",
@@ -151,10 +151,10 @@
             "resposta": ""
         },
         {
-            "name": "Jaqueline Cássia",
+            "name": "Janderson Cássio",
             "idade": 41,
-            "sexo": "Feminino",
-            "emprego": "Engenheira",
+            "sexo": "Masculino",
+            "emprego": "Engenheiro",
             "score": "100%",
             "qteVisitas": "3",
             "conseguiuCredito": "",
@@ -184,7 +184,7 @@
             "name": "José Júnior",
             "idade": 27,
             "sexo": "Masculino",
-            "emprego": "Motorista de Transporte Alternativo",
+            "emprego": "Desempregado",
             "score": "0%",
             "qteVisitas": "2",
             "conseguiuCredito": "",
@@ -211,9 +211,9 @@
             "resposta": ""
         },
         {
-            "name": "Millena Francine",
+            "name": "Mauro Francine",
             "idade": 29,
-            "sexo": "Feminino",
+            "sexo": "Masculino",
             "emprego": "Nutricionista",
             "score": "-",
             "qteVisitas": "0",
@@ -256,10 +256,10 @@
             "resposta": ""
         },
         {
-            "name": "Ana Michael",
+            "name": "Álvaro Michael",
             "idade": 33,
-            "sexo": "Feminino",
-            "emprego": "Engenheira",
+            "sexo": "Masculino",
+            "emprego": "Engenheiro",
             "score": "40%",
             "qteVisitas": "5",
             "conseguiuCredito": "",
