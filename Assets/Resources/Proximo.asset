@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: Proximo
   m_EditorClassIdentifier: 
   audios:
-  - {fileID: 8300000, guid: 3e02955f6a0e52b41a6cbc55bfd1969d, type: 3}
+  - {fileID: 8300000, guid: 6341799c81b9b6d458476a83a46915a7, type: 3}
+  - {fileID: 8300000, guid: 42bd0688e3376734fbb3a6f0ae32ab00, type: 3}
+  - {fileID: 8300000, guid: 2089011740f131341abaff8491d0082d, type: 3}
+  - {fileID: 8300000, guid: e6fe3bd49d9dac94aa470708eb65f7b5, type: 3}
+  - {fileID: 8300000, guid: 7bcc039e03b096a468e2b31864e3c0ee, type: 3}
+  - {fileID: 8300000, guid: 4c9151e2a878ef04e8f5ea7ad83d2e88, type: 3}
+  - {fileID: 8300000, guid: d8125a90cd8a2974eb79d4ed16b0474d, type: 3}
+  - {fileID: 8300000, guid: f0e484f7cbc8aff428cc888ca28f6c63, type: 3}
