@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ThomasAnimacoes : MonoBehaviour
 {
-    public Animator controlador;
-
+    private Animator controlador;
 
     // Start is called before the first frame update
     void Start()
@@ -15,22 +14,24 @@ public class ThomasAnimacoes : MonoBehaviour
 
     public void animacaoPlay(int estado)
     {
-        controlador.SetBool("Pensando", false);
-        controlador.ResetTrigger("Aprovado");
-        controlador.ResetTrigger("Rejeitado");
-
         switch (estado)
         {
             case 0:
-                controlador.SetBool("Pensando", true);
+                controlador.SetBool("Carimbando", true);
+                //controlador.SetTrigger("Pensando");
                 break;
             case 1:
+                controlador.SetBool("Carimbando", false);
+                //controlador.SetTrigger("NPensando");
                 break;
             case 2:
                 controlador.SetTrigger("Aprovado");
+                controlador.SetBool("Carimbando", false);
                 break;
             case 3:
+                
                 controlador.SetTrigger("Rejeitado");
+                controlador.SetBool("Carimbando", false);
                 break;
         }
     }

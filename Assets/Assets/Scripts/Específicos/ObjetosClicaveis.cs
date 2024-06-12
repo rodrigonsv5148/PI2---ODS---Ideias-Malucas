@@ -29,9 +29,19 @@ public class ObjetosClicaveis : MonoBehaviour
 
     //--------------------------------------------------------
 
+    // Animacoes
+    private Animator controlador;
+    [SerializeField] private string nomeAnimacao;
+    private bool AnimatorControler = false;
+    //----------------------------------------------
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        controlador = GetComponent<Animator>();
+
+        if (controlador != null) AnimatorControler = true;
+
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSourceclique = gameObject.AddComponent<AudioSource>();
         configurarAudio(somMouse, audioSource);
@@ -50,8 +60,12 @@ public class ObjetosClicaveis : MonoBehaviour
     {
         Cursor.SetCursor(hoverCursor, customHotspot, CursorMode.Auto);
         audioSource.Play();
+        if (arrastavel == false && AnimatorControler == true) 
+        {
+            controlador.SetTrigger(nomeAnimacao);
 
-        posicaoAtual = posicaoInicial; // Passa a posição inicial para a atual, já que vamos alterar a atual mais a frente
+        } else posicaoAtual = posicaoInicial; // Passa a posição inicial para a atual, já que vamos alterar a atual mais a frente
+
     }
 
     protected virtual void OnMouseDrag()
@@ -76,7 +90,7 @@ public class ObjetosClicaveis : MonoBehaviour
         
     }
 
-    protected void OnMouseUp()
+    protected virtual void OnMouseUp()
     {
         Cursor.SetCursor(null, defaultHotspot, CursorMode.Auto);
 

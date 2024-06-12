@@ -66,8 +66,7 @@ public class Porta : MonoBehaviour
     private InformacoesPersonagens scriptInfos;
     //----------------------------------------------
 
-
-    // Inicialização
+        // Inicialização
     private void Start()
     {
         // Algoritmo para pegar a quantidade de audios do scriptable object
@@ -178,7 +177,7 @@ public class Porta : MonoBehaviour
                 // Nomeando os assets
                 npcs[0].name = "NPC " + charactereAtualNumber.ToString();
                 papelInGame[0].name = "Papel " + charactereAtualNumber.ToString();
-                informacoesInGame[0].name = "infoNPC" + charactereAtualNumber.ToString();
+                informacoesInGame[0].name = "infoNPC " + charactereAtualNumber.ToString();
                 
             }
             else 

@@ -30,9 +30,7 @@ public class Carimbos : ObjetosClicaveis
 
     protected override void OnMouseDrag() 
     {
-        //animacoes.animacaoPlay(0);
-
-        animacoes.controlador.SetBool("Pensando", true);
+        animacoes.animacaoPlay(0);
 
         Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (arrastavel)
@@ -64,11 +62,16 @@ public class Carimbos : ObjetosClicaveis
         }
     }
 
+    protected override void OnMouseUp()
+    {
+        Cursor.SetCursor(null, defaultHotspot, CursorMode.Auto);
+
+        if (arrastavel) transform.position = posicaoInicial; // Devolve o objeto a posição inicial
+        animacoes.animacaoPlay(1);
+    }
+
     private void OnTriggerExit2D(Collider2D collision) 
     {
-        //animacoes.animacaoPlay(1);
-        animacoes.controlador.SetBool("Pensando", false);
-
         Debug.Log("saiu");
         if (collision.gameObject.tag == tagPapel) 
         {
@@ -79,15 +82,11 @@ public class Carimbos : ObjetosClicaveis
 
     private void carimbada() 
     {
-        animacoes.controlador.SetBool("Pensando", false);
-
         switch (estado)
         {
             case 1://estado de negação
 
-                //animacoes.animacaoPlay(3);
-
-                animacoes.controlador.SetTrigger("Aprovado");
+                animacoes.animacaoPlay(3);
 
                 GameManager.qtePropostas++;
 
@@ -98,9 +97,7 @@ public class Carimbos : ObjetosClicaveis
 
             case 2: //estado de aprovação
 
-                //animacoes.animacaoPlay(2);
-                
-                animacoes.controlador.SetTrigger("Rejeitado");
+                animacoes.animacaoPlay(2);
                 
                 GameManager.qtePropostas++;
 
