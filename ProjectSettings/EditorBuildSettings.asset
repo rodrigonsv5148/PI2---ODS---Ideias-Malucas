@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vitoria.unity
     guid: 16ecf3498c9c0604bb1e0639f865bc02
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 6f1aaf613a9e55841a0a949b0c09e2f7
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: ad1e162c16e2df34cab613828e014600
   m_configObjects: {}
