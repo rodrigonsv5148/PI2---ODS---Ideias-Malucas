@@ -299,6 +299,156 @@
             "ideia": "Circo dos Sapos: Um circo com sapos treinados para atrações incríveis.",
             "valorSustentabilidade": -2,
             "resposta": ""
+        },
+        {
+            "name": "Ernesto Pereira",
+            "idade": 37,
+            "sexo": "Masculino",
+            "emprego": "Gerente de supermercado",
+            "score": "40%",
+            "qteVisitas": "5",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 400000,
+            "ideia": "Guarda cachorro robô: É como um cachorro guarda de verdade, porém não late e tem imã para impedir ladrões de usarem armas e equipementos para entrar em grandes corporações.",
+            "valorSustentabilidade": -3,
+            "resposta": ""
+        },
+        {
+            "name": "Fabiano Peixoto",
+            "idade": 26,
+            "sexo": "Masculino",
+            "emprego": "Desempregado",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 30000,
+            "ideia": "Relógio Shazam: Relógio que dá choque para impedir que micos roubem seus pertences. Pode também ser utilizado remotamente para dar choque em ladrões que roubarem seu relogio.",
+            "valorSustentabilidade": -1,
+            "resposta": ""
+        },
+        {
+            "name": "Vinicius Dimorais",
+            "idade": 33,
+            "sexo": "Masculino",
+            "emprego": "Blogueiro",
+            "score": "100%",
+            "qteVisitas": "2",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 90000,
+            "ideia": "Pé de pão: Projeto de pesquisa para descobrir um crusamento de plantas que pulem algumas etapas de produção e gerem pão no lugar de trigo.",
+            "valorSustentabilidade": -2,
+            "resposta": ""
+        },
+        {
+            "name": "Evandro Sengalo",
+            "idade": 39,
+            "sexo": "Masculino",
+            "emprego": "Engenheiro Mecânico",
+            "score": "50%",
+            "qteVisitas": "2",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 85000,
+            "ideia": "Super recicla-3000: Projeto de caminhão que consegue fazer reciclagem em tempo real assim que recebe o lixo. Não consegue diferenciar vidro de metal.",
+            "valorSustentabilidade": 1,
+            "resposta": ""
+        },
+        {
+            "name": "Teté Warneck",
+            "idade": 28,
+            "sexo": "Masculino",
+            "emprego": "Desempregado",
+            "score": "67%",
+            "qteVisitas": "3",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 120000,
+            "ideia": "Canudos de bolacha: Esses canudos são comestíveis para serem usados e não seja descartados. Eles tem um gosto horrível e esfarelam se em contato com liquidos por mais de 10 minutos.",
+            "valorSustentabilidade": 1,
+            "resposta": ""
+        },
+        {
+            "name": "Leo Nesi",
+            "idade": 30,
+            "sexo": "Masculino",
+            "emprego": "Estudante",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 300000,
+            "ideia": "Manda pra lua: Projeto para estoque de lixo que se livra do excesso mandando para o espaço. Foguete não incluso.",
+            "valorSustentabilidade": -3,
+            "resposta": ""
+        },
+        {
+            "name": "Gabriel Sunami",
+            "idade": 31,
+            "sexo": "Masculino",
+            "emprego": "Pescador",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 70000,
+            "ideia": "Dr. Fusão: Projeto para criar um dispositivo para barcos que gera energia ao ser alimentado por lixo e sucata encontrado no mar.",
+            "valorSustentabilidade": 2,
+            "resposta": ""
+        },
+        {
+            "name": "Ricardo da Cunha",
+            "idade": 27,
+            "sexo": "Empreendedor",
+            "emprego": "Palhaço",
+            "score": "100%",
+            "qteVisitas": "2",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 200000,
+            "ideia": "BioMorto: Empresa que utilizará cadáveres para produzir biocombustível, muito mais sustentável que derivados de petróleo.",
+            "valorSustentabilidade": 2,
+            "resposta": ""
+        },
+        {
+            "name": "Laerte Lima",
+            "idade": 22,
+            "sexo": "Masculino",
+            "emprego": "Jornalista",
+            "score": "-",
+            "qteVisitas": "0",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 145000,
+            "ideia": "Redoma de Vidro Isolante: Mantém tanto o frio quanto o calor longe da sua cidade.",
+            "valorSustentabilidade": -3,
+            "resposta": ""
+        },
+        {
+            "name": "Roberto Lopes",
+            "idade": 45,
+            "sexo": "Masculino",
+            "emprego": "Físico",
+            "score": "75%",
+            "qteVisitas": "8",
+            "conseguiuCredito": "",
+            "valorDoCredito": "",
+
+            "valorInvestimento": 400000,
+            "ideia": "Bananergy: Usina nuclear que utilizará o decaimento do isótopo de potássio presente em bananas para gerar energia",
+            "valorSustentabilidade": 1,
+            "resposta": ""
         }
     ]
 }
