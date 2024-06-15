@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ControleMenu : MonoBehaviour
 {
-    public void Update()
+    public virtual void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
