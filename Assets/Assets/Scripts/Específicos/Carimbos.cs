@@ -12,8 +12,6 @@ public class Carimbos : ObjetosClicaveis
     private int indicePapel;
     private TextoPapel scriptPapel;
 
-    [SerializeField] private float tempoDeMorte = 3f;
-
     // Animação de Thomas
     public GameObject thomas;
     private ThomasAnimacoes animacoes;
@@ -94,8 +92,7 @@ public class Carimbos : ObjetosClicaveis
                 animacoes.animacaoPlay(3);
                 GameManager.qtePropostas++;
                 GameManager.propostas();
-                StartCoroutine(destruirPapelENPC());
-                //destruirPapelENPC();
+                destruirPapelENPC();
                 break;
 
             case 2: //estado de aprovação
@@ -104,8 +101,7 @@ public class Carimbos : ObjetosClicaveis
                 GameManager.qtePropostas++;
                 GameManager.proximo(scriptPapel.investimento, scriptPapel.sustentabilidade);
                 GameManager.propostas();
-                StartCoroutine(destruirPapelENPC());
-                //destruirPapelENPC();
+                destruirPapelENPC();
                 break;
 
             default:
@@ -114,16 +110,10 @@ public class Carimbos : ObjetosClicaveis
         }
     }
 
-    private IEnumerator destruirPapelENPC()
+    private void destruirPapelENPC()
     {
-        
-        
-        //GameObject infoNPCObj = GameObject.Find("infoNPC " + indicePapel.ToString());
         Destroy(GameObject.Find("infoNPC " + indicePapel.ToString()));
         Destroy(GameObject.Find("NPC " + indicePapel.ToString()));
         Destroy(GameObject.Find("Papel " + indicePapel.ToString()));
-        Debug.Log("Objetos destruídos após " + tempoDeMorte + " segundos.");
-
-        yield return new WaitForSeconds(tempoDeMorte);
     }
 }

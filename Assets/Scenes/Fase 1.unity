@@ -703,15 +703,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03f310938a756a948bb1c88ceddac6e7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 35785f0a02efde54f955d1ba69f768ee, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 249
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1931,7 +1931,6 @@ MonoBehaviour:
   tagPapel: Papel
   tagCarimboNao: Carimbo - Negado
   tagCarimboSim: Carimbo - Aprovado
-  tempoDeMorte: 1
   thomas: {fileID: 596103082}
   animacoesCarimbo: {fileID: 522770439}
 --- !u!212 &969956479
@@ -3084,7 +3083,6 @@ MonoBehaviour:
   tagPapel: Papel
   tagCarimboNao: Carimbo - Negado
   tagCarimboSim: Carimbo - Aprovado
-  tempoDeMorte: 1
   thomas: {fileID: 596103082}
   animacoesCarimbo: {fileID: 522770439}
 --- !u!212 &1465884326
