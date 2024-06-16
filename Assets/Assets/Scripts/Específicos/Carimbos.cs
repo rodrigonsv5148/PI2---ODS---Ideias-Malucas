@@ -12,13 +12,20 @@ public class Carimbos : ObjetosClicaveis
     private int indicePapel;
     private TextoPapel scriptPapel;
 
+    [SerializeField] private float tempoDeMorte = 3f;
+
     // Animação de Thomas
     public GameObject thomas;
     private ThomasAnimacoes animacoes;
 
-    protected override void Start() 
+    // Animações carimbada
+    public GameObject animacoesCarimbo;
+    private AnimacaoCarimbo animacaoCarimbada;
+
+    protected override void Start()
     {
         animacoes = thomas.GetComponent<ThomasAnimacoes>();
+        animacaoCarimbada = animacoesCarimbo.GetComponent<AnimacaoCarimbo>();
 
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSourceclique = gameObject.AddComponent<AudioSource>();
@@ -28,10 +35,9 @@ public class Carimbos : ObjetosClicaveis
         posicaoInicial = transform.position; // Pega a posição inicial do objeto
     }
 
-    protected override void OnMouseDrag() 
+    protected override void OnMouseDrag()
     {
         animacoes.animacaoPlay(0);
-
         Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (arrastavel)
         {
@@ -65,59 +71,59 @@ public class Carimbos : ObjetosClicaveis
     protected override void OnMouseUp()
     {
         Cursor.SetCursor(null, defaultHotspot, CursorMode.Auto);
-
         if (arrastavel) transform.position = posicaoInicial; // Devolve o objeto a posição inicial
         animacoes.animacaoPlay(1);
     }
 
-    private void OnTriggerExit2D(Collider2D collision) 
+    private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("saiu");
-        if (collision.gameObject.tag == tagPapel) 
+        if (collision.gameObject.tag == tagPapel)
         {
             estado = 0;
             indicePapel = -1;
         }
     }
 
-    private void carimbada() 
+    private void carimbada()
     {
         switch (estado)
         {
             case 1://estado de negação
-
+                animacaoCarimbada.nao();
                 animacoes.animacaoPlay(3);
-
                 GameManager.qtePropostas++;
-
                 GameManager.propostas();
-
-                destruirPapelENPC();
+                StartCoroutine(destruirPapelENPC());
+                //destruirPapelENPC();
                 break;
 
             case 2: //estado de aprovação
-
+                animacaoCarimbada.sim();
                 animacoes.animacaoPlay(2);
-                
                 GameManager.qtePropostas++;
-
                 GameManager.proximo(scriptPapel.investimento, scriptPapel.sustentabilidade);
-
                 GameManager.propostas();
-                destruirPapelENPC();
+                StartCoroutine(destruirPapelENPC());
+                //destruirPapelENPC();
                 break;
 
             default:
-
                 Debug.Log("Clique fora do papel");
                 break;
         }
     }
 
-    private void destruirPapelENPC() 
+    private IEnumerator destruirPapelENPC()
     {
+        
+        
+        //GameObject infoNPCObj = GameObject.Find("infoNPC " + indicePapel.ToString());
         Destroy(GameObject.Find("infoNPC " + indicePapel.ToString()));
         Destroy(GameObject.Find("NPC " + indicePapel.ToString()));
         Destroy(GameObject.Find("Papel " + indicePapel.ToString()));
+        Debug.Log("Objetos destruídos após " + tempoDeMorte + " segundos.");
+
+        yield return new WaitForSeconds(tempoDeMorte);
     }
 }

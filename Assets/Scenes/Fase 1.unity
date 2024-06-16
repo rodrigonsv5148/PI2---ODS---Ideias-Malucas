@@ -1931,7 +1931,9 @@ MonoBehaviour:
   tagPapel: Papel
   tagCarimboNao: Carimbo - Negado
   tagCarimboSim: Carimbo - Aprovado
+  tempoDeMorte: 1
   thomas: {fileID: 596103082}
+  animacoesCarimbo: {fileID: 522770439}
 --- !u!212 &969956479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1992,7 +1994,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969956476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.32, y: -3.77, z: 4.170142}
+  m_LocalPosition: {x: 7.62, y: -3.67, z: 4.170142}
   m_LocalScale: {x: 0.23996876, y: 0.23996876, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3082,7 +3084,9 @@ MonoBehaviour:
   tagPapel: Papel
   tagCarimboNao: Carimbo - Negado
   tagCarimboSim: Carimbo - Aprovado
+  tempoDeMorte: 1
   thomas: {fileID: 596103082}
+  animacoesCarimbo: {fileID: 522770439}
 --- !u!212 &1465884326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3143,7 +3147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465884323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.08, y: -4, z: 4.170142}
+  m_LocalPosition: {x: 8.32, y: -3.96, z: 4.170142}
   m_LocalScale: {x: 0.2399688, y: 0.2399688, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4223,7 +4227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061701143}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5151515, y: -1.3313298, z: 4.1907}
+  m_LocalPosition: {x: 2, y: -1.3313298, z: 4.1907}
   m_LocalScale: {x: 0.25499186, y: 0.25499186, z: 0.25499186}
   m_ConstrainProportionsScale: 0
   m_Children: []
