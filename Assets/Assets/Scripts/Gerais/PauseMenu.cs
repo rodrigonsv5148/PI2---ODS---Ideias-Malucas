@@ -8,6 +8,11 @@ public class PauseMenu : ControleMenu
     [SerializeField] private GameObject pauseMenu;
     private bool pause = false;
 
+    public void start()
+    {
+        Time.timeScale = 0f;
+    }
+
     public override void Update()
     {
         if (pause == false &&  Input.GetKeyDown(KeyCode.Escape))
