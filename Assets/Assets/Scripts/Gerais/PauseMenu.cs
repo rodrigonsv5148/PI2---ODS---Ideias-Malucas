@@ -10,7 +10,7 @@ public class PauseMenu : ControleMenu
 
     public void start()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
     public override void Update()

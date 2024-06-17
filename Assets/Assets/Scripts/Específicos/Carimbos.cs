@@ -12,13 +12,15 @@ public class Carimbos : ObjetosClicaveis
     private int indicePapel;
     private TextoPapel scriptPapel;
 
-    // Animação de Thomas
+    // Animaï¿½ï¿½o de Thomas
     public GameObject thomas;
     private ThomasAnimacoes animacoes;
 
-    // Animações carimbada
+    // Animaï¿½ï¿½es carimbada
     public GameObject animacoesCarimbo;
     private AnimacaoCarimbo animacaoCarimbada;
+
+    //som carimbada
 
     protected override void Start()
     {
@@ -30,7 +32,7 @@ public class Carimbos : ObjetosClicaveis
         configurarAudio(somMouse, audioSource);
         configurarAudio(somEspecial, audioSourceclique);
 
-        posicaoInicial = transform.position; // Pega a posição inicial do objeto
+        posicaoInicial = transform.position; // Pega a posiï¿½ï¿½o inicial do objeto
     }
 
     protected override void OnMouseDrag()
@@ -69,7 +71,7 @@ public class Carimbos : ObjetosClicaveis
     protected override void OnMouseUp()
     {
         Cursor.SetCursor(null, defaultHotspot, CursorMode.Auto);
-        if (arrastavel) transform.position = posicaoInicial; // Devolve o objeto a posição inicial
+        if (arrastavel) transform.position = posicaoInicial; // Devolve o objeto a posiï¿½ï¿½o inicial
         animacoes.animacaoPlay(1);
     }
 
@@ -87,7 +89,7 @@ public class Carimbos : ObjetosClicaveis
     {
         switch (estado)
         {
-            case 1://estado de negação
+            case 1://estado de negaï¿½ï¿½o
                 animacaoCarimbada.nao();
                 animacoes.animacaoPlay(3);
                 GameManager.qtePropostas++;
@@ -95,7 +97,7 @@ public class Carimbos : ObjetosClicaveis
                 destruirPapelENPC();
                 break;
 
-            case 2: //estado de aprovação
+            case 2: //estado de aprovaï¿½ï¿½o
                 animacaoCarimbada.sim();
                 animacoes.animacaoPlay(2);
                 GameManager.qtePropostas++;
