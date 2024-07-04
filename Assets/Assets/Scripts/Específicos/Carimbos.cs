@@ -20,10 +20,15 @@ public class Carimbos : ObjetosClicaveis
     public GameObject animacoesCarimbo;
     private AnimacaoCarimbo animacaoCarimbada;
 
-    //som carimbada
+    //som da escolha
+    [SerializeField] private AudioClip boaEscolha;
+    [SerializeField] private AudioClip maEscolha;
+    private AudioSource escolha;
 
     protected override void Start()
     {
+        escolha = GetComponent<AudioSource>();
+
         animacoes = thomas.GetComponent<ThomasAnimacoes>();
         animacaoCarimbada = animacoesCarimbo.GetComponent<AnimacaoCarimbo>();
 
@@ -100,6 +105,15 @@ public class Carimbos : ObjetosClicaveis
             case 2: //estado de aprova��o
                 animacaoCarimbada.sim();
                 animacoes.animacaoPlay(2);
+                if (scriptPapel.sustentabilidade < 0) 
+                {
+                    escolha.clip = maEscolha;
+                }
+                else 
+                {
+                    escolha.clip = boaEscolha;
+                }
+                escolha.Play();
                 GameManager.qtePropostas++;
                 GameManager.proximo(scriptPapel.investimento, scriptPapel.sustentabilidade);
                 GameManager.propostas();
