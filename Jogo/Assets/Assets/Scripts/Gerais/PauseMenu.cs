@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : ControleMenu
+public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     private bool pause = false;
@@ -13,7 +13,7 @@ public class PauseMenu : ControleMenu
         Time.timeScale = 1f;
     }
 
-    public override void Update()
+    /*public override void Update()
     {
         if (pause == false &&  Input.GetKeyDown(KeyCode.Escape))
         {
@@ -27,7 +27,7 @@ public class PauseMenu : ControleMenu
             Time.timeScale = 1.0f;
             pause = false;
         }
-    }
+    }*/
 
     public void mainMenu (string sceneName) 
     {

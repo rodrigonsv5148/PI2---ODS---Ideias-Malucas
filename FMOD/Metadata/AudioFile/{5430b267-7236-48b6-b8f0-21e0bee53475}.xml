@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{5430b267-7236-48b6-b8f0-21e0bee53475}">
+		<property name="assetPath">
+			<value>OST's/OST_Game_WinMidnight Commando - Yacht Commander.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>205.42693877551019</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c9bd3bbb-9514-4926-9f8c-84cfd874ffd0}</destination>
+		</relationship>
+	</object>
+</objects>

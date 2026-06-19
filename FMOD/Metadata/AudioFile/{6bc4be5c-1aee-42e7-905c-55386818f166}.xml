@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{6bc4be5c-1aee-42e7-905c-55386818f166}">
+		<property name="assetPath">
+			<value>SFX's/Door/SFX_OpenDoor_3_341307__pp87__door-handle-06.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.1272562358276643</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c9bd3bbb-9514-4926-9f8c-84cfd874ffd0}</destination>
+		</relationship>
+	</object>
+</objects>
