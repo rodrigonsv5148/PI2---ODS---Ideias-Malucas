@@ -20,14 +20,14 @@ public class SettingsManager : MonoBehaviour
 
     private void Awake()
     {
-        //if (SettingsSOValidation() == false) return;
+        if (SettingsSOValidation() == false) return;
 
         LoadSettings();
     }
 
     public void SaveSettings() 
     {
-        //if (SettingsSOValidation() == false) return;
+        if (SettingsSOValidation() == false) return;
 
         try 
         {
@@ -44,7 +44,7 @@ public class SettingsManager : MonoBehaviour
 
     public void LoadSettings() 
     {
-        //if (SettingsSOValidation() == false) return;
+        if (SettingsSOValidation() == false) return;
 
         if (File.Exists(settingFilePath)) 
         {

@@ -14,9 +14,9 @@ public class SettingsUIManager : MonoBehaviour
     #region UI elements
 
     [SerializeField] TMP_Dropdown dResolutions;
-    [SerializeField] TMP_Dropdown dFontSize;
     [SerializeField] Toggle tIsInteractable;
     [SerializeField] Toggle tIsWindowned;
+    [SerializeField] Slider sFontSize;
     [SerializeField] Slider sMasterVolume;
     [SerializeField] Slider sOSTVolume;
     [SerializeField] Slider sSFXVolume;
@@ -33,9 +33,9 @@ public class SettingsUIManager : MonoBehaviour
 
         UIelements = new List<Selectable>
         {
-            dResolutions, dFontSize,
+            dResolutions, 
             tIsInteractable, tIsWindowned,
-            sMasterVolume, sOSTVolume, sSFXVolume, sVOVolume,
+            sFontSize, sMasterVolume, sOSTVolume, sSFXVolume, sVOVolume,
             saveButton
         };
 
@@ -65,11 +65,7 @@ public class SettingsUIManager : MonoBehaviour
     #region Actions UI elements
     private void SetResolutionIndex(int newResolutionIndex)
     {
-        settingsSO.ResolutionIndex = newResolutionIndex;
-    }
-    private void SetFontSize(int newFontSize)
-    {
-        settingsSO.FontSize = newFontSize;
+        settingsSO.ResolutionIndex =  newResolutionIndex;
     }
     private void SetInteractable(bool isInteractable)
     {
@@ -78,6 +74,10 @@ public class SettingsUIManager : MonoBehaviour
     private void SetWindowned(bool isWindowned) 
     {
         settingsSO.WindowMode = isWindowned;
+    }
+    private void SetFontSize(float newFontSize)
+    {
+        settingsSO.FontSize = settingsSO.MinFontSize + (int)newFontSize * settingsSO.IncrementFontSize;
     }
     private void SetMasterVolume(float newMasterVolume)
     {
@@ -107,7 +107,7 @@ public class SettingsUIManager : MonoBehaviour
         if(UIElementsValidation() == false) return;
 
         dResolutions.onValueChanged.AddListener(SetResolutionIndex);
-        dFontSize.onValueChanged.AddListener(SetFontSize);
+        sFontSize.onValueChanged.AddListener(SetFontSize);
         tIsInteractable.onValueChanged.AddListener(SetInteractable);
         tIsWindowned.onValueChanged.AddListener(SetWindowned);
         sMasterVolume.onValueChanged.AddListener(SetMasterVolume);
@@ -120,7 +120,7 @@ public class SettingsUIManager : MonoBehaviour
     private void RemoveListeners()
     {
         if (dResolutions != null) dResolutions.onValueChanged.RemoveListener(SetResolutionIndex);
-        if (dFontSize != null) dFontSize.onValueChanged.RemoveListener(SetFontSize);
+        if (sFontSize != null) sFontSize.onValueChanged.RemoveListener(SetFontSize);
         if (tIsInteractable != null) tIsInteractable.onValueChanged.RemoveListener(SetInteractable);
         if (tIsWindowned != null) tIsWindowned.onValueChanged.RemoveListener(SetWindowned);
         if (sMasterVolume != null) sMasterVolume.onValueChanged.RemoveListener(SetMasterVolume);
@@ -137,7 +137,7 @@ public class SettingsUIManager : MonoBehaviour
         if (UIElementsValidation() == true) 
         {
              dResolutions.value = settingsSO.ResolutionIndex;
-             dFontSize.value = settingsSO.FontSize;
+             sFontSize.value = (settingsSO.FontSize - settingsSO.MinFontSize) / (float)settingsSO.IncrementFontSize;
              tIsInteractable.isOn = settingsSO.InteractionMode;
              tIsWindowned.isOn = settingsSO.WindowMode;
              sMasterVolume.value = settingsSO.MasterVolume;

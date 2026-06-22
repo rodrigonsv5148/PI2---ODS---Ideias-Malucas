@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: Assembly-CSharp::SettingsSO
   windowMode: 0
-  resolutions: []
   resolutionIndex: 1
   sfxVolume: 0.75
   ostVolume: 0.75

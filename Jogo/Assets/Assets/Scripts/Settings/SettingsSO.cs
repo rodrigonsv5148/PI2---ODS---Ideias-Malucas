@@ -117,10 +117,17 @@ public class SettingsSO : ScriptableObject
         get { return minFontSize; }
     }
 
-    private const int maxFontSize = 72;
+    private const int maxFontSize = 60;
     public int MaxFontSize
     {
         get { return maxFontSize; }
+    }
+
+    [SerializeField]
+    private const int incrementFontSize = 9;
+    public int IncrementFontSize
+    {
+        get { return incrementFontSize; }
     }
     #endregion
 
@@ -176,7 +183,7 @@ public class SettingsSO : ScriptableObject
 
     private void ApplySoundSettings()
     {
-        if(new ValidateSettings(this).DictionaryVCAValidation(vcas)) GetVCAReferences();
+        if(new ValidateSettings(this).DictionaryVCAValidation(vcas) == false) GetVCAReferences();
 
         vcas[FMOD_Names.VCA.master].setVolume(MasterVolume);
 
@@ -202,6 +209,11 @@ public class SettingsSO : ScriptableObject
     #region Functions
     public Dictionary<string, VCA> GetVCAsList() 
     {
+        if (vcas == null)
+        {
+            GetVCAReferences();
+        }
+
         foreach (var vca in vcas) 
         {
             if (vca.Value.isValid() == false) 
@@ -211,6 +223,7 @@ public class SettingsSO : ScriptableObject
             }
         }
         return vcas;
+    
     }
 
     public List<Resolution> GetResolutions() 
