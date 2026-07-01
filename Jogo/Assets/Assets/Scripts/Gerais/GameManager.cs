@@ -17,12 +17,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Para projetos aprovados:
     public static void proximo(int dinheiroProjeto, int sustentatibilidadeProjeto) 
     {

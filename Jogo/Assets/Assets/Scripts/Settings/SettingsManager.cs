@@ -83,6 +83,7 @@ public class SettingsManager : MonoBehaviour
             settings.DefaultSettings();
         }
 
+        Debug.Log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
         settings.ApplySettings();
 
         OnSettingsLoaded?.Invoke();

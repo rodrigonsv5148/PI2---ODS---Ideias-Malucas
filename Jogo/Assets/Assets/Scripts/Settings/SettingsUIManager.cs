@@ -50,7 +50,7 @@ public class SettingsUIManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateUIBasedOnSettings();
+        //UpdateUIBasedOnSettings();
     }
 
     private void OnDestroy()
@@ -108,6 +108,7 @@ public class SettingsUIManager : MonoBehaviour
 
         dResolutions.onValueChanged.AddListener(SetResolutionIndex);
         sFontSize.onValueChanged.AddListener(SetFontSize);
+        sFontSize.onValueChanged.AddListener(FontSizeEngineRegister);
         tIsInteractable.onValueChanged.AddListener(SetInteractable);
         tIsWindowned.onValueChanged.AddListener(SetWindowned);
         sMasterVolume.onValueChanged.AddListener(SetMasterVolume);
@@ -120,7 +121,11 @@ public class SettingsUIManager : MonoBehaviour
     private void RemoveListeners()
     {
         if (dResolutions != null) dResolutions.onValueChanged.RemoveListener(SetResolutionIndex);
-        if (sFontSize != null) sFontSize.onValueChanged.RemoveListener(SetFontSize);
+        if (sFontSize != null) 
+        { 
+            sFontSize.onValueChanged.RemoveListener(SetFontSize);
+            sFontSize.onValueChanged.RemoveListener(FontSizeEngineRegister);
+        }
         if (tIsInteractable != null) tIsInteractable.onValueChanged.RemoveListener(SetInteractable);
         if (tIsWindowned != null) tIsWindowned.onValueChanged.RemoveListener(SetWindowned);
         if (sMasterVolume != null) sMasterVolume.onValueChanged.RemoveListener(SetMasterVolume);
@@ -137,7 +142,7 @@ public class SettingsUIManager : MonoBehaviour
         if (UIElementsValidation() == true) 
         {
              dResolutions.value = settingsSO.ResolutionIndex;
-             sFontSize.value = (settingsSO.FontSize - settingsSO.MinFontSize) / (float)settingsSO.IncrementFontSize;
+             sFontSize.value = (settingsSO.FontSize - settingsSO.MinFontSize) / settingsSO.IncrementFontSize;
              tIsInteractable.isOn = settingsSO.InteractionMode;
              tIsWindowned.isOn = settingsSO.WindowMode;
              sMasterVolume.value = settingsSO.MasterVolume;
@@ -158,6 +163,11 @@ public class SettingsUIManager : MonoBehaviour
     private void SettingsSavedFeedback()
     {
         Debug.Log("Settings saved successfully! (UI Feedback)");
+    }
+
+    private void FontSizeEngineRegister(float deprecated) 
+    {
+        TextSizeEngine.instance.AdjustTextSize();
     }
 
     private void populateDropdown<T>(List<T> list, TMP_Dropdown dropdown) 

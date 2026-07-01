@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_Level_1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Game_End_FaltouDinheiro.unity
+    path: Assets/Scenes/Game_End_FaltouSustentabilidade.unity
     guid: bfe59d0679abf4146b138999f0ee7aaf
   - enabled: 1
     path: Assets/Scenes/Game_End_FaltouSustentabilidade.unity

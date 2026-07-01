@@ -1,50 +1,33 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ImagensTutorial : MonoBehaviour
 {
-    [SerializeField] List<GameObject> imagens;
-    private int counti = 0;
-    [SerializeField] string cena;
+    [SerializeField] List<Sprite> imagens;
+    [SerializeField] Image actualImage; 
+    private int counti;
 
-    // Start is called before the first frame update
     void Start()
     {
+        counti = 0;
         mostrarImagem();
     }
 
-    private void Update()
+    public void mostrarImagem()
     {
-        if (Input.GetKey(KeyCode.Escape)) 
+        if (imagens.Count == 0)
+            return;
+
+        if (counti < imagens.Count)
         {
-            SceneManager.LoadScene(cena);
+            actualImage.sprite = imagens[counti];
+            counti++;
         }
-    }
-
-    protected void OnMouseDown()
-    {
-        mostrarImagem();
-    }
-
-    private void mostrarImagem()
-    {
-        if (imagens.Count != 0)
+        else
         {
-            if (counti < imagens.Count)
-            {
-                if (counti > 0)
-                {
-                    imagens[counti - 1].SetActive(false);
-                }
-                imagens[counti].SetActive(true);
-                counti++;                
-            }
-            else 
-            {
-                SceneManager.LoadScene(cena);
-            }
+            SceneManager.UnloadSceneAsync(gameObject.scene);
         }
     }
 }

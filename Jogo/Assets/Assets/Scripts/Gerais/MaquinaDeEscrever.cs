@@ -1,89 +1,142 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MaquinaDeEscrever : MonoBehaviour
 {
-    [SerializeField] private List<string> texto;
-    [SerializeField] private List<GameObject> imagens;
+    [SerializeField] private List<string> phrasesList;
+    [SerializeField] float tempoPorLetra = 0.2f;
+    [SerializeField] RectTransform ScrollViewContent;
+    [SerializeField] private TMP_Text textBox;
+    [SerializeField] private string sceneName;
+
     private char[] letras;
-    public TMP_Text Viewer;
-    [SerializeField] float tempoLetra = 0.2f;
+    int actualLetterPosition = 0;
     private Coroutine atualDigitacao;
+    private bool estaDigitando;
 
-    [SerializeField] string proxCena;
-
-    private int count = 0;
-    private int count2 = 0;
-    private int counti = 0;
+    [SerializeField] private List<GameObject> imagens;
+    private int indexTextList;
 
     // Chama o primeiro texto
     void Start()
     {
-        MostrarTextoAtual();
-        mostrarImagem();
+        indexTextList = 0;
+        WritePhrase(indexTextList);
+        //mostrarImagem();
     }
 
-    IEnumerator MostrarTexto()
+    IEnumerator WriteTextMachine(char[] text)
     {
-        while (count < letras.Length)
+        estaDigitando = true;
+        actualLetterPosition = 0;
+
+        while (actualLetterPosition < text.Length)
         {
-            yield return new WaitForSeconds(tempoLetra);
-            Viewer.text += letras[count];
-            count++;
-            if (count == letras.Length) 
-            {
-                mostrarImagem();
-            }
+            yield return new WaitForSeconds(tempoPorLetra);
+
+            textBox.text += text[actualLetterPosition];
+            actualLetterPosition++;
         }
-        count = 0;
+
+        estaDigitando = false;
     }
 
-    private void MostrarTextoAtual()
+    private void WritePhrase(int index)
     {
-        if (count2 < texto.Count)
+        if (index < 0) index = 0;
+
+        if (index < phrasesList.Count)
         {
-            letras = texto[count2].ToCharArray();
-            Viewer.text = null;
-            atualDigitacao = StartCoroutine(MostrarTexto());
+            letras = phrasesList[index].ToCharArray();
+            textBox.text = string.Empty;
+
+            atualDigitacao = StartCoroutine(WriteTextMachine(letras));
         }
         else
         {
-            SceneManager.LoadScene(proxCena);
+            LoadScene(sceneName);
         }
     }
 
-    protected void OnMouseDown()
+    public void LoadScene(string _sceneName) 
     {
-        // Se o texto atual não estiver completo, exibe o texto completo
-        if (count < letras.Length)
+        SceneManager.LoadScene(_sceneName);
+    }
+
+    public void Proximo()
+    {
+        ShowCinematicImage();
+
+        if (estaDigitando)
         {
-            StopCoroutine(atualDigitacao);
-            Viewer.text = texto[count2];
-            count = letras.Length; // Define count para evitar reiniciar a corrotina
-            mostrarImagem();            
+            if (atualDigitacao != null)
+                StopCoroutine(atualDigitacao);
+
+            textBox.text = phrasesList[indexTextList];
+            //count = letras.Length;
+            estaDigitando = false;
+        }
+        else 
+        {
+            ResetScrollViewContent();
+            indexTextList++;
+            WritePhrase(indexTextList);
+        }
+    }
+
+    public void Anterior()
+    {
+        HideCinematicImage();
+
+        if (estaDigitando)
+        {
+            if (atualDigitacao != null)
+                StopCoroutine(atualDigitacao);
+
+            textBox.text = phrasesList[indexTextList];
+            estaDigitando = false;
         }
         else
         {
-            // Avança para o próximo texto
-            count2++;
-            count = 0;
-            MostrarTextoAtual();
+            ResetScrollViewContent();
+            if (indexTextList > 0) indexTextList--;
+            WritePhrase(indexTextList);
         }
     }
 
-    private void mostrarImagem() 
+    private void ResetScrollViewContent()
     {
-        if (imagens.Count != 0) 
+        ScrollViewContent.anchoredPosition = new Vector2(
+            ScrollViewContent.anchoredPosition.x,
+            0f);
+    }
+
+    private void ShowCinematicImage()
+    {
+        if (imagens.Count == 0 
+            || indexTextList < 0 
+            || indexTextList >= imagens.Count 
+            || imagens[indexTextList] == null) return;
+
+        if (imagens[indexTextList].activeSelf == false) 
         {
-            if (counti < imagens.Count) 
-            {
-                imagens[counti].SetActive(true);
-                counti++;
-            }
+            imagens[indexTextList].SetActive(true);
+        }
+    }
+
+    private void HideCinematicImage() 
+    {
+        if (imagens.Count == 0 
+            || indexTextList < 0 
+            || indexTextList >= imagens.Count 
+            || imagens[indexTextList] == null) return;
+
+        if (imagens[indexTextList].activeSelf == true)
+        {
+            imagens[indexTextList].SetActive(false);
         }
     }
 }

@@ -96,8 +96,6 @@ public class Porta : MonoBehaviour
             interativo = false; // Variável de controle para não ativar o mesmo evento simultâneamente 
             
             StartCoroutine(temposTurno());
-
-            Debug.Log("Aquiiiiiii" + tempoAudio);
         }
     }
 

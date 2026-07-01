@@ -1,38 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
-//using UnityEditor.UI;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
+[RequireComponent(typeof(VerticalAlignText))]
 public class ZoomPapel : MonoBehaviour
 {
-    public float nivelAmpliacao = 2.0f;
-    public Vector3 localZoom = new Vector3 (0, 0, 0);
+    public float paperZoomLevel = 2.0f;
+    [SerializeField] float horizontalRectZoomLevel = 0.813f;
+    [SerializeField] float topRectZoomLevel = 0.654f;
+    public Vector3 adjustPositionToZoom = new Vector3 (0, 0, 0);
 
     private Vector3 originalLocation;
     private Vector3 originalScale;
     private bool isZoom = false;
 
-    private GameObject papel;
-    private GameObject texto;
-    private TMP_Text text;
-    private SpriteRenderer ajustadorDeLayer;
+    [SerializeField] private SpriteRenderer paperModel;
+    [SerializeField] private TMP_Text textBox;
+    [SerializeField] private RectTransform scrollViewRect;
+    private Vector2 originalScrollViewRectOffsetMin = new Vector2();
+    private Vector2 originalScrollViewRectOffsetMax = new Vector2();
+    private VerticalAlignText verticalAlignText;
+    private Vector2 originalTextSize;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        verticalAlignText = GetComponent<VerticalAlignText>();
+    }
+
     void Start()
     {
-        papel = transform.Find("Square").gameObject;
-        texto = transform.Find("Text (TMP)").gameObject;
-        
-        text = texto.GetComponent<TMP_Text>();
-        ajustadorDeLayer = papel.GetComponent<SpriteRenderer>();
-        
         originalLocation = transform.position;
         originalScale = transform.localScale;
 
+        originalScrollViewRectOffsetMin = scrollViewRect.offsetMin;
+        originalScrollViewRectOffsetMax = scrollViewRect.offsetMax;
+
+        originalTextSize = textBox.rectTransform.sizeDelta;
     }
 
-    private void OnMouseDown()
+    public void ApplyZoom() 
     {
         if (!isZoom)
         {
@@ -43,12 +48,15 @@ public class ZoomPapel : MonoBehaviour
 
     private void zoom() 
     {
-        transform.position = originalLocation + localZoom;
+        transform.position = originalLocation + adjustPositionToZoom;
 
-        transform.localScale = originalScale * nivelAmpliacao;
+        transform.localScale = originalScale * paperZoomLevel;
 
-        ajustadorDeLayer.sortingOrder = 10;
-        text.GetComponent<Renderer>().sortingOrder = 10;
+        textBox.rectTransform.anchoredPosition = new Vector2(0.0f, 0.0f);
+
+        AdjustZoomScroolView();
+
+        paperModel.sortingOrder = 75;
 
         isZoom = true;
     }
@@ -59,9 +67,38 @@ public class ZoomPapel : MonoBehaviour
 
         transform.localScale = originalScale;
 
-        ajustadorDeLayer.sortingOrder = 8;
-        text.GetComponent<Renderer>().sortingOrder = 8;
+        scrollViewRect.offsetMin = originalScrollViewRectOffsetMin;
+        scrollViewRect.offsetMax = originalScrollViewRectOffsetMax;
 
-        isZoom =false;
+        textBox.rectTransform.sizeDelta = originalTextSize;
+
+        Canvas.ForceUpdateCanvases();
+
+        verticalAlignText.RebuildTextBox();
+
+        paperModel.sortingOrder = 7;
+
+        isZoom = false;
+    }
+
+    private void AdjustZoomScroolView()
+    {
+        Vector2 offsetMin = scrollViewRect.offsetMin;
+        Vector2 offsetMax = scrollViewRect.offsetMax;
+
+        offsetMin.x *= horizontalRectZoomLevel;
+        offsetMin.y = 0f;
+
+        offsetMax.x *= horizontalRectZoomLevel;
+        offsetMax.y *= topRectZoomLevel;
+
+        scrollViewRect.offsetMin = offsetMin;
+        scrollViewRect.offsetMax = offsetMax;
+
+        textBox.rectTransform.sizeDelta =  new Vector2(-scrollViewRect.offsetMax.x, textBox.rectTransform.sizeDelta.y);
+
+        Canvas.ForceUpdateCanvases();
+
+        verticalAlignText.RebuildTextBox();
     }
 }

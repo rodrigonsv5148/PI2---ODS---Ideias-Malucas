@@ -13,6 +13,16 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(settingsMenuName, LoadSceneMode.Additive);
     }
 
+    public void UnloadAsyncScene(string sceneName) 
+    {
+        SceneManager.UnloadSceneAsync(sceneName);
+    }
+
+    public void LoadAsyncScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

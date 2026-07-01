@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjetosClicaveis : MonoBehaviour
@@ -9,7 +8,11 @@ public class ObjetosClicaveis : MonoBehaviour
     protected Vector2 andar = new Vector2(0.1f, 0.1f);
     protected Vector2 posicaoAtual = new Vector2(0f, 0f);
     [SerializeField] protected bool arrastavel = true;
-
+    [SerializeField] float characterScaleOnSitOnBackChair;
+    SpriteRenderer sr;
+    int sortingLayerBase;
+    bool isDragging;
+    [SerializeField] bool isObject;
     //--------------------------------------------------------
 
     //Troca de cursor quando clica ---------------------------
@@ -35,11 +38,18 @@ public class ObjetosClicaveis : MonoBehaviour
     private bool AnimatorControler = false;
     //----------------------------------------------
 
+
+    private void Awake()
+    {
+        controlador = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+
+        if (sr != null && isObject) sortingLayerBase = sr.sortingOrder;
+    }
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        controlador = GetComponent<Animator>();
-
         if (controlador != null) AnimatorControler = true;
 
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -47,31 +57,28 @@ public class ObjetosClicaveis : MonoBehaviour
         configurarAudio(somMouse, audioSource);
         configurarAudio(somEspecial, audioSourceclique);
 
-        posicaoInicial = transform.position; // Pega a posição inicial do objeto
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
- 
+        posicaoInicial = transform.position; // Pega a posição inicial do objeto   
     }
 
     protected void OnMouseDown()
     {
         Cursor.SetCursor(hoverCursor, customHotspot, CursorMode.Auto);
-        audioSource.Play();
+        audioSource?.Play();
         if (arrastavel == false && AnimatorControler == true) 
         {
             controlador.SetTrigger(nomeAnimacao);
 
         } else posicaoAtual = posicaoInicial; // Passa a posição inicial para a atual, já que vamos alterar a atual mais a frente
-
     }
 
     protected virtual void OnMouseDrag()
     {
+        isDragging = true;
+
         // Converte a posição do mouse na tela para uma posição no mundo 3D
         Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (sr != null && isObject) sr.sortingOrder = 70;
 
         if (arrastavel) 
         {
@@ -83,6 +90,18 @@ public class ObjetosClicaveis : MonoBehaviour
             audioSourceclique.Play();
             Debug.Log("ativou efeito");
         }   
+    }
+
+    private void OnMouseExit()
+    {
+        if (sr != null && isObject) sr.sortingOrder = sortingLayerBase;
+
+        isDragging = false;
+    }
+
+    public bool DraggingState() 
+    {
+        return isDragging;
     }
 
     protected void ativarEfeito(string nomeEfeito)
@@ -106,11 +125,11 @@ public class ObjetosClicaveis : MonoBehaviour
     {
         if (verdade == true) 
         {
-            transform.localScale = new Vector3(0.075f, 0.075f, 1f);
+            transform.localScale = new Vector3(characterScaleOnSitOnBackChair, characterScaleOnSitOnBackChair, 1f);
         }
         else 
         {
-            transform.localScale = new Vector3(0.25f, 0.25f, 1f);
+            transform.localScale = Vector3.one;
         }
 
         yield return new WaitForSeconds(1f);
