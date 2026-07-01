@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class Carimbos : ObjetosClicaveis
@@ -21,21 +19,21 @@ public class Carimbos : ObjetosClicaveis
     private AnimacaoCarimbo animacaoCarimbada;
 
     //som da escolha
-    [SerializeField] private AudioClip boaEscolha;
-    [SerializeField] private AudioClip maEscolha;
-    private AudioSource escolha;
+    //[SerializeField] private AudioClip boaEscolha;
+    //[SerializeField] private AudioClip maEscolha;
+    //private AudioSource escolha;
 
     protected override void Start()
     {
-        escolha = GetComponent<AudioSource>();
+        //escolha = GetComponent<AudioSource>();
 
         animacoes = thomas.GetComponent<ThomasAnimacoes>();
         animacaoCarimbada = animacoesCarimbo.GetComponent<AnimacaoCarimbo>();
 
-        audioSource = gameObject.AddComponent<AudioSource>();
+        /*audioSource = gameObject.AddComponent<AudioSource>();
         audioSourceclique = gameObject.AddComponent<AudioSource>();
         configurarAudio(somMouse, audioSource);
-        configurarAudio(somEspecial, audioSourceclique);
+        configurarAudio(somEspecial, audioSourceclique);*/
 
         posicaoInicial = transform.position; // Pega a posi��o inicial do objeto
     }
@@ -51,7 +49,7 @@ public class Carimbos : ObjetosClicaveis
 
         if (Input.GetMouseButtonDown(1))
         {
-            audioSourceclique.Play();
+            RuntimeManager.PlayOneShot(FMOD_Names.Events.SFXS.stomp);
             carimbada();
             Debug.Log("ativou efeito carimbo");
         }
@@ -71,6 +69,14 @@ public class Carimbos : ObjetosClicaveis
             indicePapel = scriptPapel.indice;
             estado = 2;
         }
+    }
+
+    protected override void OnMouseDown()
+    {
+        Cursor.SetCursor(hoverCursor, customHotspot, CursorMode.Auto);
+        RuntimeManager.PlayOneShot(FMOD_Names.Events.SFXS.clickStamp);
+        //audioSource?.Play();
+        posicaoAtual = posicaoInicial; // Passa a posição inicial para a atual, já que vamos alterar a atual mais a frente
     }
 
     protected override void OnMouseUp()
@@ -107,13 +113,12 @@ public class Carimbos : ObjetosClicaveis
                 animacoes.animacaoPlay(2);
                 if (scriptPapel.sustentabilidade < 0) 
                 {
-                    escolha.clip = maEscolha;
+                    RuntimeManager.PlayOneShot(FMOD_Names.Events.SFXS.badChoice);
                 }
                 else 
                 {
-                    escolha.clip = boaEscolha;
+                    RuntimeManager.PlayOneShot(FMOD_Names.Events.SFXS.goodChoice);
                 }
-                escolha.Play();
                 GameManager.qtePropostas++;
                 GameManager.proximo(scriptPapel.investimento, scriptPapel.sustentabilidade);
                 GameManager.propostas();

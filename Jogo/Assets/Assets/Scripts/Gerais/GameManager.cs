@@ -36,15 +36,15 @@ public class GameManager : MonoBehaviour
 
         if (qtePropostas <= 7)
         {
-            if (dinheiro < 0) SceneManager.LoadScene("FaltouDinheiro");
+            if (dinheiro < 0) SceneManager.LoadScene(Scene_Names.Cinematics.badEndMoney);
         }
         else
         {
-            if (sustentabilidadeDoMundo > 0 && dinheiro > 0) SceneManager.LoadScene("Vitoria");
+            if (sustentabilidadeDoMundo > 0 && dinheiro > 0) SceneManager.LoadScene(Scene_Names.Cinematics.goodEnd);
 
-            else if (dinheiro < 0) SceneManager.LoadScene("FaltouDinheiro");
+            else if (dinheiro < 0) SceneManager.LoadScene(Scene_Names.Cinematics.badEndMoney);
 
-            else if (sustentabilidadeDoMundo < 0) SceneManager.LoadScene("FaltouSustentabilidade");
+            else if (sustentabilidadeDoMundo < 0) SceneManager.LoadScene(Scene_Names.Cinematics.badEndSustentability);
         }
     }
 }

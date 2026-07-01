@@ -24,9 +24,9 @@ public class SettingsSO : ScriptableObject
 
     [System.NonSerialized]    
     //[HideInInspector]
-    private List<Resolution> resolutions = new List<Resolution>
+    public List<Resolution> resolutions = new List<Resolution>
     {
-        new Resolution(800,600),
+        new Resolution(854,480),
         new Resolution(1280,720),
         new Resolution(1920,1080),
         new Resolution(2560,1440)
@@ -133,8 +133,12 @@ public class SettingsSO : ScriptableObject
 
     #region FMOD Things
     //--------------------------------------------------- Fiz um "armengue" na nomeclatura das chaves do dicionario, se der problema, buscar aqui
-    [System.NonSerialized]
-    private Dictionary<string, VCA> vcas;
+    [System.NonSerialized] public FMOD.Studio.VCA masterVCA;
+    [System.NonSerialized] public FMOD.Studio.VCA ostVCA;
+    [System.NonSerialized] public FMOD.Studio.VCA sfxVCA;
+    [System.NonSerialized] public FMOD.Studio.VCA voVCA;
+
+    [System.NonSerialized] private List<FMOD.Studio.VCA> vcas;
 
     /*private VCA 
 
@@ -183,31 +187,49 @@ public class SettingsSO : ScriptableObject
 
     private void ApplySoundSettings()
     {
-        if(new ValidateSettings(this).DictionaryVCAValidation(vcas) == false) GetVCAReferences();
+        //if(new ValidateSettings(this).DictionaryVCAValidation(vcas) == false) 
+        GetVCAReferences();
 
-        vcas[FMOD_Names.VCA.master].setVolume(MasterVolume);
+        masterVCA.setVolume(MasterVolume);
 
-        vcas[FMOD_Names.VCA.ost].setVolume(OSTVolume);
+        ostVCA.setVolume(OSTVolume);
 
-        vcas[FMOD_Names.VCA.sfx].setVolume(SFXVolume);
+        sfxVCA.setVolume(SFXVolume);
 
-        vcas[FMOD_Names.VCA.vo].setVolume(VOVolume);
+        voVCA.setVolume(VOVolume);
     }
     #endregion
 
     private void GetVCAReferences()
     {
-        vcas = new Dictionary<string, VCA>
+        masterVCA = FMODUnity.RuntimeManager.GetVCA("vca:/VOL_MASTER");
+        ostVCA = FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.ost);
+        sfxVCA = FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.sfx);
+        voVCA = FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.vo);
+
+        vcas = new List<VCA>
         {
-            {FMOD_Names.VCA.master, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.master) },
-            {FMOD_Names.VCA.ost, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.ost) },
-            {FMOD_Names.VCA.sfx, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.sfx) },
-            {FMOD_Names.VCA.vo, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.vo) }
+            masterVCA,
+            ostVCA,
+            sfxVCA,
+            voVCA
         };
+        Debug.Log($"Master: {masterVCA.isValid()}");
+        Debug.Log($"OST: {ostVCA.isValid()}");
+        Debug.Log($"SFX: {sfxVCA.isValid()}");
+        Debug.Log($"VO: {voVCA.isValid()}");
+
     }
+    /*vcas = new Dictionary<string, VCA>
+    {
+        {FMOD_Names.VCA.master, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.master) },
+        {FMOD_Names.VCA.ost, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.ost) },
+        {FMOD_Names.VCA.sfx, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.sfx) },
+        {FMOD_Names.VCA.vo, FMODUnity.RuntimeManager.GetVCA(FMOD_Names.VCA.vo) }
+    };*/
 
     #region Functions
-    public Dictionary<string, VCA> GetVCAsList() 
+    public List<VCA> GetVCAsList() 
     {
         if (vcas == null)
         {
@@ -216,7 +238,7 @@ public class SettingsSO : ScriptableObject
 
         foreach (var vca in vcas) 
         {
-            if (vca.Value.isValid() == false) 
+            if (vca.isValid() == false) 
             {
                 Debug.LogWarning($"Invalid VCA on {this.name}");
                 return null;

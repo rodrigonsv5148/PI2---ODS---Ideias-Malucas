@@ -1718,6 +1718,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1672881960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1672881962}
+  - component: {fileID: 1672881961}
+  m_Layer: 0
+  m_Name: CAOS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1672881961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672881960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8f5bc955b75d7458fc42c6a51614b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaosFMODCorrigir
+  settings: {fileID: 11400000, guid: d7aad43cc1eb4904e893c61c300072dc, type: 2}
+--- !u!4 &1672881962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672881960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.23267, y: -3.14637, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1814073930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1774,7 @@ GameObject:
   - component: {fileID: 1814073932}
   - component: {fileID: 1814073931}
   m_Layer: 0
-  m_Name: TEMP
+  m_Name: OST
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1750,11 +1795,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1378781794
-      Data2: 1231752546
-      Data3: -1998107764
-      Data4: 96085765
-    Path: event:/OST's/OST_WinScene
+      Data1: -632766368
+      Data2: 1137423215
+      Data3: 1948834957
+      Data4: -837958554
+    Path: event:/OST's/OST_MainMenu
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -2342,3 +2387,4 @@ SceneRoots:
   - {fileID: 835878444}
   - {fileID: 981285192}
   - {fileID: 1814073932}
+  - {fileID: 1672881962}

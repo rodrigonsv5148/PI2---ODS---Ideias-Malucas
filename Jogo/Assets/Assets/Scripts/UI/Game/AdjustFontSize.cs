@@ -9,5 +9,6 @@ public class AdjustFontSize : MonoBehaviour
     {
         TextSizeEngine.instance.AddTmpro(thisText);
         TextSizeEngine.instance.AdjustTextSize();
+
     }
 }

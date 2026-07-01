@@ -76,11 +76,11 @@ public class ValidateSettings
         return true;
     }
 
-    public bool DictionaryVCAValidation (Dictionary<string, VCA> vcas) 
+    public bool DictionaryVCAValidation (List<VCA> vcas) 
     {
         foreach (var vca in vcas)
         {
-            if (vca.Value.isValid() == false)
+            if (vca.isValid() == false)
             {
                 Debug.LogWarning($"Error in VCA dictionary on file {settings.name}");
                 return false;

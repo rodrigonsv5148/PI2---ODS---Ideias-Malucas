@@ -324,7 +324,7 @@ MonoBehaviour:
   - "\"\xC9 hora de carimbar alguns papeis e tornar o mundo um lugar melhor.\""
   - Thomas diz a si mesmo...
   - "...Embora j\xE1 n\xE3o acredite em suas palavras."
-  tempoPorLetra: 0.2
+  tempoPorLetra: 0.07
   ScrollViewContent: {fileID: 3035668242001484199}
   textBox: {fileID: 3796238813415630193}
   sceneName: Game_Level_1
@@ -395,9 +395,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 890708222}
     - target: {fileID: 5978327077680889930, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978327077680889930, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 822395907634459911}
+    - target: {fileID: 5978327077680889930, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978327077680889930, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Game_Level_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6411379563067860336, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -533,8 +545,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3007953147764108459, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2081751497273706141}
   m_SourcePrefab: {fileID: 100100000, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
+--- !u!224 &2081751497273706139 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3799601506966052873, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
+  m_PrefabInstance: {fileID: 2081751497273706138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2081751497273706140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3007953147764108459, guid: ce15b362006bbab49b6ad1bfd1156763, type: 3}
+  m_PrefabInstance: {fileID: 2081751497273706138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081751497273706141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081751497273706140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66d901be97affd4b9cb85cd4db45015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VerticalAlignText
+  textHeight: {fileID: 2081751497273706139}
+  contentBoxHeight: {fileID: 3035668242001484199}
+  offset: 25
 --- !u!114 &2712411804060029940
 MonoBehaviour:
   m_ObjectHideFlags: 0

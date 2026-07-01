@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using UnityEngine;
 
@@ -25,10 +26,10 @@ public class ObjetosClicaveis : MonoBehaviour
 
     //Audio do mouse -----------------------------------------
 
-    [SerializeField] protected AudioClip somMouse;
+    /*[SerializeField] protected AudioClip somMouse;
     [SerializeField] protected AudioClip somEspecial;
     protected AudioSource audioSource;
-    protected AudioSource audioSourceclique;
+    protected AudioSource audioSourceclique;*/
 
     //--------------------------------------------------------
 
@@ -52,18 +53,19 @@ public class ObjetosClicaveis : MonoBehaviour
     {
         if (controlador != null) AnimatorControler = true;
 
-        audioSource = gameObject.AddComponent<AudioSource>();
+        /*audioSource = gameObject.AddComponent<AudioSource>();
         audioSourceclique = gameObject.AddComponent<AudioSource>();
         configurarAudio(somMouse, audioSource);
-        configurarAudio(somEspecial, audioSourceclique);
+        configurarAudio(somEspecial, audioSourceclique);*/
 
         posicaoInicial = transform.position; // Pega a posição inicial do objeto   
     }
 
-    protected void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         Cursor.SetCursor(hoverCursor, customHotspot, CursorMode.Auto);
-        audioSource?.Play();
+        RuntimeManager.PlayOneShot(FMOD_Names.Events.SFXS.clickInteractible);
+        //audioSource?.Play();
         if (arrastavel == false && AnimatorControler == true) 
         {
             controlador.SetTrigger(nomeAnimacao);
@@ -87,7 +89,8 @@ public class ObjetosClicaveis : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            audioSourceclique.Play();
+            
+            //audioSourceclique.Play();
             Debug.Log("ativou efeito");
         }   
     }
@@ -135,10 +138,10 @@ public class ObjetosClicaveis : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
-    protected void configurarAudio(AudioClip somClique, AudioSource AudioSourceName) 
+    /*protected void configurarAudio(AudioClip somClique, AudioSource AudioSourceName) 
     {
         AudioSourceName.clip = somClique;
         AudioSourceName.playOnAwake = false;
         AudioSourceName.loop = false;
-    }
+    }*/
 }

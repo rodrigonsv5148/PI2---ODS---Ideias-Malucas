@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public sealed class TextSizeEngine : MonoBehaviour
 {
-    [SerializeField] List<TextMeshProUGUI> textsScene;
+    [SerializeField] List<TextMeshProUGUI> textsScene = new List<TextMeshProUGUI>();
     [SerializeField] SettingsSO settings;
 
     public static TextSizeEngine instance;

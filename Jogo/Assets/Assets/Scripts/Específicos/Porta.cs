@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,19 +11,6 @@ using UnityEngine.Audio;
 public class Porta : MonoBehaviour
 {
     private bool interativo = true;
-    
-
-    //Variáveis relativas à parte de audio 
-
-    public List<ScriptableSons> scriptableAudio;
-    private AudioSource audioSource;
-    private ScriptableSons scriptableAudioProximo;
-    private ScriptableSons scriptableAudioPassos;
-    private ScriptableSons scriptableAudioPorta;
-    private int qteAudiosProximo;
-    private int qteAudiosPassos;
-    private int qteAudiosPorta;
-    private float tempoAudio;
 
     //----------------------------------------------
 
@@ -69,17 +57,9 @@ public class Porta : MonoBehaviour
         // Inicialização
     private void Start()
     {
-        // Algoritmo para pegar a quantidade de audios do scriptable object
-        scriptableAudioProximo = scriptableAudio[0];
-        scriptableAudioPassos = scriptableAudio[1];
-        scriptableAudioPorta = scriptableAudio[2];
-        qteAudiosProximo = scriptableAudioProximo.audios.Count;
-        qteAudiosPassos = scriptableAudioPassos.audios.Count;
-        qteAudiosPorta = scriptableAudioPorta.audios.Count;
 
         qtePersonagens = listaPersonagens.Characteres.Count;
 
-        audioSource = GetComponent<AudioSource>();
 
         script = cadeiraPrincipal.GetComponent<Cadeiras>();
 
@@ -109,14 +89,22 @@ public class Porta : MonoBehaviour
 
 
     // Função que seleciona um audio aleatório do scriptable object, da play e retorna a duração desse audio
-    private IEnumerator playAudio(int qteAudios,ScriptableSons scriptable) 
+    private IEnumerator playAudio(string fmodEventName) 
     {
-        int numeroAudio = Random.Range(0, qteAudios);
-        
-        audioSource.clip = scriptable.audios[numeroAudio]; // seta o clip no audio source        
-        
-        audioSource.Play();
-        yield return new WaitForSeconds(scriptable.audios[numeroAudio].length);
+        EventInstance fmodEvent = FMODUnity.RuntimeManager.CreateInstance(fmodEventName);
+
+        fmodEvent.start();
+
+        PLAYBACK_STATE state;
+
+        do
+        {
+            fmodEvent.getPlaybackState(out state);
+            yield return null;
+        }
+        while (state != PLAYBACK_STATE.STOPPED);
+
+        fmodEvent.release();
     }
 
 
@@ -125,15 +113,15 @@ public class Porta : MonoBehaviour
     {
 
         // Toca o áudio do próximo
-        yield return StartCoroutine(playAudio(qteAudiosProximo, scriptableAudioProximo));
+        yield return StartCoroutine(playAudio(FMOD_Names.Events.VOS.proximo));
 
         // Toca o áudio da porta
-        yield return StartCoroutine(playAudio(qteAudiosPorta, scriptableAudioPorta));
+        yield return StartCoroutine(playAudio(FMOD_Names.Events.SFXS.openDoor));
 
         //Aqui que entra a animação da porta (preciso da animação p fazer isso, acho q placeholder n ficaria legal)
 
         // Toca o áudio dos passos
-        yield return StartCoroutine(playAudio(qteAudiosPassos, scriptableAudioPassos));
+        yield return StartCoroutine(playAudio(FMOD_Names.Events.SFXS.steps));
 
         // Spawn do NPC após a conclusão dos áudios
         spawnNPC();

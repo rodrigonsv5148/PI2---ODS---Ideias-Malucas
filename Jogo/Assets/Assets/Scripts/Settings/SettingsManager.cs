@@ -89,6 +89,10 @@ public class SettingsManager : MonoBehaviour
         OnSettingsLoaded?.Invoke();
     }
 
+    public void ApplySettings() 
+    {
+        settings.ApplySettings();
+    }
 
     #region Manager ButtonsValue-settingsSO
 
